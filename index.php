@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
-	<head>
+	<head>	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>
-			Webtop - by Christoph Majcen and Arthur Bouz
+			W3bt0p 1337
 		</title>
-	
-	
 	</head>
-	<body>
-	
-	
-	
-	
+
+	<body id="background">
+		<div id="wrapper">	
+			<div id="content">
+				<?php 
+					if($_POST['login'])
+					{
+						include("webtop.php");
+					}
+					else
+					{
+						include("login.php");
+					}
+				?>
+			</div>
+		</div>
 	</body>
 </html>
+?>
