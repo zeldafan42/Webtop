@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	</head>
-	
-	<body>
 		<div id="waterIcon">
 			<a href="webtop.php?waterIcon=true&fireIcon=$fireIcon&leafIcon=$leafIcon&butterflyIcon=$butterflyIcon"> <img src="water-icon.png" alt="Wasser-Icon" > </a>
 		</div>
@@ -24,24 +17,21 @@
 		<?php
 			if($_GET['waterIcon'])
 			{
-				include('popupWindowWater.php');
+				include('popupWindow?head="Water".php');
 			}
 			if($_GET['fireIcon'])
 			{
-				include('popupWindowFire.php');
+				include('popupWindow?head="Fire".php');
 			}
 			if($_GET['leafIcon'])
 			{
-				include('popupWindowLeaf.php');
+				include('popupWindow?head="Leaf".php');
 			}
 			if($_GET['butterflyIcon'])
 			{
-				include('popupWindowButterfly.php');
+				include('popupWindow?head="Butterfly".php');
 			}
 		
 		
 		?>
 		
-		
-	</body>
-</html>
