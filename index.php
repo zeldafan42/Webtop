@@ -11,7 +11,7 @@
 		<div id="wrapper">	
 			<div id="content">
 				<?php 
-					if($_POST['login'])
+					if(authenticateuser($_POST['username'],$_POST['password']))
 					{
 						include("webtop.php");
 					}
@@ -19,9 +19,14 @@
 					{
 						include("login.php");
 					}
+					
+					
+					function authenticateuser($user,$password)
+					{
+						return ($user == "username") && ($password == "password");
+					}
 				?>
 			</div>
 		</div>
 	</body>
 </html>
-?>
