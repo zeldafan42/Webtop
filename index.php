@@ -20,7 +20,7 @@
 		<div id="wrapper">	
 			<div id="content">
 				<?php 
-					if(!isset($_SESSION['username']))
+					if(!isset($_SESSION['username']) && isset($_POST['username']) && $_POST['username'])
 					{
 						authenticateuser($_POST['username'],$_POST['password']);
 					}
@@ -30,7 +30,7 @@
 					}
 					else
 					{
-						if($_POST['login'])
+						if(isset($_POST['login']))
 						{
 							echo "<p>Wrong username or password</p>";
 						}
