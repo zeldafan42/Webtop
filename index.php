@@ -20,11 +20,11 @@
 		<div id="wrapper">	
 			<div id="content">
 				<?php 
-					if(!$_SESSION['loggedIn'])
+					if(!isset($_SESSION['username']))
 					{
 						authenticateuser($_POST['username'],$_POST['password']);
 					}
-					if($_SESSION['loggedIn'])
+					if(isset($_SESSION['username']))
 					{
 						include("webtop.php");
 					}
@@ -36,7 +36,7 @@
 						}
 						include("login.php");
 					}
-					if($_SESSION['loggedIn'])
+					if(isset($_SESSION['username']))
 					{
 						echo "<a href=\"".$_SERVER['PHP_SELF']."?logout=true\">Logout</a>";
 					}
@@ -46,7 +46,6 @@
 						if(($user == "username") && ($password == "password"))
 						{
 							$_SESSION['username'] = $user;
-							$_SESSION['loggedIn'] = true;
 						}
 					}
 				?>

@@ -35,20 +35,20 @@
 			switch($_SESSION['popupWindow'])
 			{
 				case water:
-					include("popupWindow.php?head=water");
+					include("popupWindow.php");
 					break;
 					
 				case fire:
-					include("popupWindow.php?head=fire");
+					include("popupWindow.php");
 					break;
 					
 				case leaf:
-					include("popupWindow.php?head=leaf");
+					include("popupWindow.php");
 					break;
 					
 				case butterfly:
 					echo "Heir";
-					include("popupWindow.php?head=butterfly");
+					include("popupWindow.php");
 					break;
 					
 				default:
