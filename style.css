@@ -4,9 +4,22 @@
     margin: 0;
     padding: 0;
 }
-body{
-    color: white;
-    font-size: 10px;
+
+body
+{
+	background-image: url("res/bg.jpg");
+}
+
+
+legend
+{
+	text-align: center;
+	margin-left:40%;
+}
+
+fieldset
+{
+	text-align: center;
 }
 
 .popup {
@@ -21,3 +34,11 @@ body{
 	width: 25%;
 	
 }
+
+#loginForm
+{
+	margin: 10% auto;
+	width: 9%;
+	
+}
+
