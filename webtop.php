@@ -17,7 +17,7 @@
 		<?php
 			if(!isset($_SESSION['popupWindow']))
 			{
-				$_SESSION['popupWindow'] = undefined;
+				$_SESSION['popupWindow'] = "undefined";
 			}
 			
 			if(isset($_GET['waterIcon']))
@@ -40,19 +40,19 @@
 			
 			switch($_SESSION['popupWindow'])
 			{
-				case water:
+				case "water":
 					include("popupWindow.php");
 					break;
 					
-				case fire:
+				case "fire":
 					include("popupWindow.php");
 					break;
 					
-				case leaf:
+				case "leaf":
 					include("popupWindow.php");
 					break;
 					
-				case butterfly:
+				case "butterfly":
 					include("popupWindow.php");
 					break;
 					
