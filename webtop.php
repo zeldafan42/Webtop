@@ -22,20 +22,20 @@
 			
 			if(isset($_GET['waterIcon']))
 			{
-				$_SESSION['popupWindow'] = water;
+				$_SESSION['popupWindow'] = "water";
 			}
 			
 			if(isset($_GET['fireIcon']))
 			{
-				$_SESSION['popupWindow'] = fire;
+				$_SESSION['popupWindow'] = "fire";
 			}
 			if(isset($_GET['leafIcon']))
 			{
-				$_SESSION['popupWindow'] = leaf;
+				$_SESSION['popupWindow'] = "leaf";
 			}
 			if(isset($_GET['butterflyIcon']))
 			{
-				$_SESSION['popupWindow'] = butterfly;
+				$_SESSION['popupWindow'] = "butterfly";
 			}
 			
 			switch($_SESSION['popupWindow'])
