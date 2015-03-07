@@ -11,7 +11,7 @@
 		<div id="wrapper">	
 			<div id="content">
 				<?php 
-					if($_POST['login'])
+					if(isset($_POST['login']) && $_POST['username']=='Konami' && $_POST['password']=='Code')
 					{
 						include("webtop.php");
 					}
@@ -24,4 +24,3 @@
 		</div>
 	</body>
 </html>
-?>
