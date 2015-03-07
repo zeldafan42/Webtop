@@ -1,37 +1,59 @@
 		<div id="waterIcon">
-			<a href="index.php?waterIcon=true&fireIcon=$fireIcon&leafIcon=$leafIcon&butterflyIcon=$butterflyIcon"> <img src="res/water-icon.png" alt="Wasser-Icon" > </a>
+			<a href="index.php?waterIcon=true"> <img src="res/water-icon.png" alt="Wasser-Icon" > </a>
 		</div>
 		
 		<div id="fireIcon">
-			<a href="index.php?waterIcon=$waterIcon&fireIcon=true&leafIcon=$leafIcon&butterflyIcon=$butterflyIcon"> <img src="res/fire-icon.png" alt="Feuer-Icon" > </a>
+			<a href="index.php?fireIcon=true"> <img src="res/fire-icon.png" alt="Feuer-Icon" > </a>
 		</div>
 		
 		<div id="leafIcon">
-			<a href="index.php?waterIcon=$waterIcon&fireIcon=$fireIcon&leafIcon=true&butterflyIcon=$butterflyIcon"> <img src="res/leaf-icon.png" alt="Blatt-Icon" > </a>
+			<a href="index.php?leafIcon=true"> <img src="res/leaf-icon.png" alt="Blatt-Icon" > </a>
 		</div>
 		
 		<div id="buterflyIcon">
-			<a href="index.php?waterIcon=$waterIcon&fireIcon=$fireIcon&leafIcon=$leafIcon&butterflyIcon=true"> <img src="res/butterfly-icon.png" alt="Schmetterling-Icon" > </a>
+			<a href="index.php?butterflyIcon=true"> <img src="res/butterfly-icon.png" alt="Schmetterling-Icon" > </a>
 		</div>
 		
 		<?php
 			if($_GET['waterIcon'])
 			{
-				include('popupWindow?head="Water".php');
+				$_SESSION['popupWindow'] = water;
 			}
 			if($_GET['fireIcon'])
 			{
-				include('popupWindow?head="Fire".php');
+				$_SESSION['popupWindow'] = fire;
 			}
 			if($_GET['leafIcon'])
 			{
-				include('popupWindow?head="Leaf".php');
+				$_SESSION['popupWindow'] = leaf;
 			}
 			if($_GET['butterflyIcon'])
 			{
-				include('popupWindow?head="Butterfly".php');
+				$_SESSION['popupWindow'] = butterfly;
 			}
-		
+			
+			switch($_SESSION['popupWindow'])
+			{
+				case water:
+					include("popupWindow.php?head=water");
+					break;
+					
+				case fire:
+					include("popupWindow.php?head=fire");
+					break;
+					
+				case leaf:
+					include("popupWindow.php?head=leaf");
+					break;
+					
+				case butterfly:
+					echo "Heir";
+					include("popupWindow.php?head=butterfly");
+					break;
+					
+				default:
+					break;
+			}
 		
 		?>
 		
