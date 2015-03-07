@@ -15,19 +15,25 @@
 		</div>
 		
 		<?php
-			if($_GET['waterIcon'])
+			if(!isset($_SESSION['popupWindow']))
+			{
+				$_SESSION['popupWindow'] = undefined;
+			}
+			
+			if(isset($_GET['waterIcon']))
 			{
 				$_SESSION['popupWindow'] = water;
 			}
-			if($_GET['fireIcon'])
+			
+			if(isset($_GET['fireIcon']))
 			{
 				$_SESSION['popupWindow'] = fire;
 			}
-			if($_GET['leafIcon'])
+			if(isset($_GET['leafIcon']))
 			{
 				$_SESSION['popupWindow'] = leaf;
 			}
-			if($_GET['butterflyIcon'])
+			if(isset($_GET['butterflyIcon']))
 			{
 				$_SESSION['popupWindow'] = butterfly;
 			}
@@ -47,7 +53,6 @@
 					break;
 					
 				case butterfly:
-					echo "Heir";
 					include("popupWindow.php");
 					break;
 					

@@ -1,9 +1,12 @@
 <?php 
 	session_start();
-	if($_GET['logout'])
+	if(isset($_GET['logout']))
 	{
-		session_unset();
-		session_destroy();
+		if($_GET['logout'])
+		{
+			session_unset();
+			session_destroy();
+		}
 	}
 ?>
 
@@ -20,7 +23,7 @@
 		<div id="wrapper">	
 			<div id="content">
 				<?php 
-					if(!isset($_SESSION['username']) && isset($_POST['username']) && $_POST['username'])
+					if(!isset($_SESSION['username']) && isset($_POST['username']) && $_POST['password'])
 					{
 						authenticateuser($_POST['username'],$_POST['password']);
 					}
