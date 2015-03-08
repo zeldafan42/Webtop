@@ -35,6 +35,8 @@
 			{
 					$_SESSION['startMenu']=!$_SESSION['startMenu'];
 			}
+			
+			echo "<h1> Welcome ".$_SESSION['username']."</h1>";
 		?>
 		
 		<div id="waterIcon">
