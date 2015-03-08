@@ -48,14 +48,29 @@ fieldset
 	
 }
 
+.loginIcon{
+	display: inline;
+	float: left;
+	margin-top: 5%;
+	margin-right: 0;
+	margin-left: 15%;
+	height: 30px;
+	width: 50px;
+	background: RGB(0,0,0);
+	border: solid 5px RGB(0,0,0);
+	border-radius: 5px;
+}
+
 #loginForm input[type=text], input[type=password]{
-	margin: 5% 5% 0% 20%;
+	margin-left: 0;
+	margin-top: 5%;
 	line-height: 30px;
 	text-align: left;
-	width: 65%;
+	width: 40%;
 	background: RGB(100,100,100);
+	padding-left: 5%;
 	border: solid 5px RGB(100,100,100);
-	border-radius: 25px;
+	border-radius: 5px;
 }
 
 #loginButton{
