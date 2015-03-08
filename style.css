@@ -39,11 +39,27 @@ fieldset
 
 #loginForm
 {
-	color: white;
+	color: yellow;
 	font-size: 30px;
 	margin: 10% auto;
 	padding: 1%;
 	width: 20%;
+	font-family: "Comic Sans MS";
 	
+}
+
+#loginForm input[type=text], input[type=password]{
+	margin: 5% 5% 0% 20%;
+	line-height: 30px;
+	text-align: left;
+	width: 65%;
+	background: RGB(100,100,100);
+	border: solid 5px RGB(100,100,100);
+	border-radius: 25px;
+}
+
+#loginButton{
+	margin: 5% 5% 5% 5%;
+	width: 50%;
 }
 
