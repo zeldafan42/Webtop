@@ -40,10 +40,6 @@
 						}
 						include("login.php");
 					}
-					if(isset($_SESSION['username']))
-					{
-						echo "<a href=\"".$_SERVER['PHP_SELF']."?logout=true\">Logout</a>";
-					}
 					
 					function authenticateuser($user,$password)
 					{
