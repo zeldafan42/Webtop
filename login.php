@@ -2,8 +2,8 @@
 <form action="index.php" method="POST" id="loginForm">
 	<fieldset>
 		<legend>Login</legend>
-		<input type="text" name="username" value="Username"/>
-		<input type="password" name="password" value="Password"/>
+		<input type="text" name="username" placeholder="Username"/>
+		<input type="password" name="password" placeholder="Password"/>
 		<input type="submit" name="login" value="Login"/>
 	</fieldset>
 </form>
