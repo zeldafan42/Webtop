@@ -5,9 +5,11 @@
     padding: 0;
 }
 
-body
+html
 {
+	height:100%;
 	background-image: url("res/bg.jpg");
+	background-size: 100% 100%;
 }
 
 
@@ -37,8 +39,11 @@ fieldset
 
 #loginForm
 {
+	color: white;
+	font-size: 30px;
 	margin: 10% auto;
-	width: 9%;
+	padding: 1%;
+	width: 20%;
 	
 }
 
