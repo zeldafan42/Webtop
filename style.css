@@ -39,6 +39,13 @@ fieldset
 	
 }
 
+#taskbar
+{
+	background: #77aa11;
+	margin-top: 15%;
+	height: 40px;
+}
+
 #loginForm
 {
 	color: yellow;
