@@ -12,9 +12,22 @@ html
 	background-size: 100% 100%;
 }
 
+body
+{
+	height: 100%;
+	width: 100%;
+}
+
 #wrapper
 {
-	
+	width: 100%;
+	height: 100%;
+}
+
+#content
+{
+	width: 100%;
+	height: 100%;
 }
 
 legend
@@ -28,13 +41,107 @@ fieldset
 	text-align: center;
 }
 
+#popupContent
+{
+	background-color: #fff;
+	color: #222;
+	font-family: sans-serif;
+	overflow: scroll;
+	height: 275px;
+}
+#popupContent pre
+{
+	margin: 0;
+	font-family: monospace;
+}
+#popupContent a:link
+{
+	color: #009;
+	text-decoration: none;
+	background-color: #fff;
+}
+#popupContent a:hover
+{
+	text-decoration: underline;
+}
+#popupContent table
+{
+	border-collapse: collapse
+	 border: 0;
+	 box-shadow: 1px 2px 3px #ccc;
+}
+#popupContent .center
+{
+	text-align: center;
+}
+#popupContent .center table
+{
+	margin: 1em auto;
+	text-align: left;
+}
+#popupContent .center th
+{
+	text-align: center !important;
+}
+#popupContent td, th
+{
+	border: 1px solid #666;
+	font-size: 75%;
+	vertical-align: baseline;
+	padding: 4px 5px;
+}
+#popupContent h1
+{
+	font-size: 150%;
+}
+#popupContent h2
+{
+	font-size: 125%;
+}
+#popupContent .p
+{
+	text-align: left;
+}
+#popupContent .e
+{
+	background-color: #ccf;
+	font-weight: bold;
+}
+#popupContent .h
+{
+	background-color: #99c;
+	font-weight: bold;
+}
+#popupContent .v
+{
+	background-color: #ddd;
+	max-width: 300px;
+	overflow-x: auto;
+}
+#popupContent .v i
+{
+	color: #999;
+}
+#popupContent img
+{
+	float: right;
+	border: 0;
+}
+#popupContent hr
+{
+	background-color: #ccc;
+	border: 0;
+}
+
 .popup
 {
+	position: absolute;
+	top: 200px;
+	right: 200px;
 	display: inline;
 	float: left;
-	height: 25%;
-	width: 25%;
-	overflow: scroll;
+	height: 300px;
+	width: 300px;
 	border: solid 4px red;
 }
 
@@ -49,7 +156,7 @@ h1
 
 .popupHeader
 {
-	height: 5%;
+	height: 25px;
 	background-color: orange;
 }
 

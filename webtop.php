@@ -7,28 +7,34 @@
 			if(!isset($_SESSION['popupWindow']) || isset($_GET['closePopup']))
 			{
 				$_SESSION['popupWindow'] = "undefined";
+				header('Location: '.$_SERVER['PHP_SELF']);
 			}
 			
 			if(isset($_GET['waterIcon']))
 			{
 				$_SESSION['popupWindow'] = "Water";
+				header('Location: '.$_SERVER['PHP_SELF']);
 			}
 			
 			if(isset($_GET['fireIcon']))
 			{
 				$_SESSION['popupWindow'] = "Fire";
+				header('Location: '.$_SERVER['PHP_SELF']);
 			}
 			if(isset($_GET['leafIcon']))
 			{
 				$_SESSION['popupWindow'] = "Leaf";
+				header('Location: '.$_SERVER['PHP_SELF']);
 			}
 			if(isset($_GET['butterflyIcon']))
 			{
 				$_SESSION['popupWindow'] = "Butterfly";
+				header('Location: '.$_SERVER['PHP_SELF']);
 			}
 			if(isset($_GET['openMenu']))
 			{
 				toggleStartMenu();
+				header('Location: '.$_SERVER['PHP_SELF']);
 			}
 			
 			function toggleStartMenu()
@@ -55,7 +61,6 @@
 			<a href="index.php?butterflyIcon=true"> <img src="res/butterfly-icon.png" alt="Schmetterling-Icon" > </a>
 		</div>
 		
-		<div id="popupHandler">
 			<?php 
 				switch($_SESSION['popupWindow'])
 				{
@@ -79,7 +84,6 @@
 						break;
 				}
 			?>
-		</div>
 		
 		<div id="taskbar">
 			<?php 
@@ -90,8 +94,6 @@
 					include("startMenu.php");
 				}
 			}
-			?>
-			<?php
 				include("taskbar.php")
 			?>
 			
