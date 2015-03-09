@@ -39,19 +39,19 @@
 			echo "<h1> Welcome ".$_SESSION['username']."</h1>";
 		?>
 		
-		<div id="waterIcon">
+		<div id="waterIcon" class="webtopIcon">
 			<a href="index.php?waterIcon=true"> <img src="res/water-icon.png" alt="Wasser-Icon" > </a>
 		</div>
 		
-		<div id="fireIcon">
+		<div id="fireIcon" class="webtopIcon">
 			<a href="index.php?fireIcon=true"> <img src="res/fire-icon.png" alt="Feuer-Icon" > </a>
 		</div>
 		
-		<div id="leafIcon">
+		<div id="leafIcon" class="webtopIcon">
 			<a href="index.php?leafIcon=true"> <img src="res/leaf-icon.png" alt="Blatt-Icon" > </a>
 		</div>
 		
-		<div id="buterflyIcon">
+		<div id="buterflyIcon" class="webtopIcon">
 			<a href="index.php?butterflyIcon=true"> <img src="res/butterfly-icon.png" alt="Schmetterling-Icon" > </a>
 		</div>
 		
