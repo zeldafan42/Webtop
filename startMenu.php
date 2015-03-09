@@ -1,4 +1,4 @@
-<div>
+<div id=startMenu>
 	<?php 
 		echo "<a href=\"".$_SERVER['PHP_SELF']."?logout=true\">Logout</a>";
 	?>

@@ -55,7 +55,7 @@
 			<a href="index.php?butterflyIcon=true"> <img src="res/butterfly-icon.png" alt="Schmetterling-Icon" > </a>
 		</div>
 		
-		<div id="popup">
+		<div id="popupHandler">
 			<?php 
 				switch($_SESSION['popupWindow'])
 				{
@@ -78,17 +78,11 @@
 					default:
 						break;
 				}
-			
 			?>
 		</div>
 		
 		<div id="taskbar">
-			<?php
-				include("taskbar.php")
-			?>
-		</div>
-		
-		<?php 
+			<?php 
 			if(isset($_SESSION['startMenu']))
 			{
 				if($_SESSION['startMenu'])
@@ -96,5 +90,11 @@
 					include("startMenu.php");
 				}
 			}
-		?>
+			?>
+			<?php
+				include("taskbar.php")
+			?>
+			
+		</div>
+		
 		
