@@ -47,7 +47,7 @@ fieldset
 	color: #222;
 	font-family: sans-serif;
 	overflow: scroll;
-	height: 275px;
+	height: 270px;
 }
 #popupContent pre
 {
@@ -156,7 +156,7 @@ h1
 
 .popupHeader
 {
-	height: 25px;
+	height: 30px;
 	background-color: orange;
 }
 
