@@ -142,7 +142,7 @@ fieldset
 	float: left;
 	height: 300px;
 	width: 300px;
-	border: solid 4px red;
+	border: solid 4px rgba(255,89,213,1.0);
 }
 
 h1
@@ -239,7 +239,7 @@ h1
 
 #loginForm
 {
-	color: yellow;
+	color: #e8c14b;
 	font-size: 30px;
 	margin: 10% auto;
 	padding: 1%;
@@ -251,7 +251,7 @@ h1
 
 #loginForm fieldset
 {
-	border-color: red;
+	border-color: rgba(255,89,213,1.0);
 	border-width: 3px;
 	border-radius: 40px;
 	background-color: rgba(0,0,0,0.5);
