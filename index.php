@@ -18,6 +18,17 @@
 		<title>
 			W3bt0p 1337
 		</title>
+		<script src="//code.jquery.com/jquery-2.1.3.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		
+		<script>
+			
+		 	$(function() {
+			 $( ".webtopIcon" ).draggable({scroll: false});
+			 $( ".popup" ).draggable({scroll: false});
+			 });
+				
+		</script>
 	</head>
 
 	<body id="background">

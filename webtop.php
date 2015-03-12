@@ -45,6 +45,7 @@
 			echo "<h1> Welcome ".$_SESSION['username']."</h1>";
 		?>
 		
+		
 		<div id="waterIcon" class="webtopIcon">
 			<a href="index.php?waterIcon=true"> <img src="res/water-icon.png" alt="Wasser-Icon" > </a>
 		</div>
