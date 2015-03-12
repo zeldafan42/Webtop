@@ -25,7 +25,7 @@
 			
 		 	$(function() {
 			 $( ".webtopIcon" ).draggable({scroll: false});
-			 $( ".popup" ).draggable({scroll: false});
+			 $( ".popup" ).draggable({scroll: false, handle: ".popupHeader"});
 			 });
 				
 		</script>
