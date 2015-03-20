@@ -6,6 +6,8 @@
 		{
 			session_unset();
 			session_destroy();
+			setcookie("username","",time()-1337);
+			header("Location: ".$_SERVER['PHP_SELF']);
 		}
 	}
 ?>
@@ -18,14 +20,19 @@
 		<title>
 			W3bt0p 1337
 		</title>
-		<script src="//code.jquery.com/jquery-2.1.3.js"></script>
-		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<link href="jquery-ui.min.css" rel="stylesheet">
+		<link href="jquery-ui.structure.min.css" rel="stylesheet">
+		<link href="jquery-ui.theme.min.css" rel="stylesheet">
+		<script src="jquery-2.1.3.min.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<script src="helper.js"></script>
 		
 		<script>
 			
 		 	$(function() {
-			 $( ".webtopIcon" ).draggable({scroll: false});
-			 $( ".popup" ).draggable({scroll: false, handle: ".popupHeader"});
+			 $( ".webtopIcon" ).draggable({scroll: false, stop: function(event, ui){savePosition(this)}});
+			 $( ".popup" ).draggable({scroll: false, handle: ".popupHeader", stop: function(event, ui){savePosition(this)}});
+			 $( ".popup" ).resizable({handles: "all", stop: function(event, ui){savePosition(this)}});
 			 });
 				
 		</script>
@@ -39,15 +46,19 @@
 					{
 						authenticateuser($_POST['username'],$_POST['password']);
 					}
-					if(isset($_SESSION['username']))
+					if(isset($_COOKIE['username']) || isset($_SESSION['username']))
 					{
 						include("webtop.php");
+						if(isset($_COOKIE['username']) && !isset($_SESSION['username']))
+						{
+							$_SESSION['username'] = $_COOKIE['username'];
+						}
 					}
 					else
 					{
 						if(isset($_POST['login']))
 						{
-							echo "<p>Wrong username or password</p>";
+							echo "<p id=\"loginError\">Wrong username or password</p>";
 						}
 						include("login.php");
 					}
@@ -56,6 +67,10 @@
 					{
 						if(($user == "username") && ($password == "password"))
 						{
+							if(isset($_POST['stillAlive']))
+							{
+								setcookie("username","".$user,time()+13371337);
+							}
 							$_SESSION['username'] = $user;
 						}
 					}

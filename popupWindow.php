@@ -1,5 +1,5 @@
-<div class=popup>
-	<div class=popupHeader>
+<div id="hateYouJS" class="popup"  <?php if(isset($_SESSION['hateYouJS'])){echo "style=\"".$_SESSION['hateYouJS']."\"";}?>>
+	<div class="popupHeader">
 		<h2>
 			<?php 
 				echo $_SESSION['popupWindow'];
