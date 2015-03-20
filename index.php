@@ -26,7 +26,9 @@
 		<script src="jquery-2.1.3.min.js"></script>
 		<script src="jquery-ui.min.js"></script>
 		<script src="helper.js"></script>
-		
+		<script src="jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
+		<script src="jQuery-File-Upload/js/jquery.fileupload.js"></script>
+		<script src="dragAndDrop.js"></script>
 		<script>
 			
 		 	$(function() {
