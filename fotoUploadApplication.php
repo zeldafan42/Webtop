@@ -16,6 +16,11 @@ if(isset($_GET['delete'])){
 	unlink($_GET['delete']);
 }
 
+if(!is_dir("./uploads"))
+{
+	mkdir("./uploads");
+}
+
 $fileHandle = opendir("./uploads/");
 
 while($myFile = readdir($fileHandle)){

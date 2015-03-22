@@ -3,6 +3,11 @@
 // A list of permitted file extensions
 $allowed = array('png', 'jpg', 'gif');
 
+if(!is_dir("./uploads"))
+{
+	mkdir("./uploads");
+}
+
 if(isset($_FILES['upl']) &&
 		!$_FILES['upl']['error'] && 
 		$_FILES['upl']['size']> 0 && 
