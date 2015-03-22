@@ -12,9 +12,9 @@ if(isset($_FILES['upl']) &&
 
     $extension = pathinfo($_FILES['upl']['name'], PATHINFO_EXTENSION);
 
-    if(!in_array(strtolower($extension), $allowed))
+    if(!in_array(strtolower($extension), $allowed) || !($_FILES['upl']['type'] == "image/png" || $_FILES['upl']['type'] == "image/gif" || $_FILES['upl']['type'] == "image/jpeg"))
     {
-        echo '<p id="uploadStatus">Error with Fileupload</p>';
+        echo '<p id="uploadStatus">Filetype rejected</p>';
     }
     elseif(move_uploaded_file($_FILES['upl']['tmp_name'], 'uploads/'.$_FILES['upl']['name']))
     {
