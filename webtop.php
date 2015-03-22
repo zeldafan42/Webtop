@@ -9,9 +9,9 @@
 				$_SESSION['popupWindow'] = "undefined";
 			}
 			
-			if(isset($_GET['waterIcon']))
+			if(isset($_GET['fotoApp']))
 			{
-				$_SESSION['popupWindow'] = "Water";
+				$_SESSION['popupWindow'] = "Foto App";
 			}
 			
 			if(isset($_GET['fireIcon']))
@@ -35,7 +35,7 @@
 		?>
 		
 		<div id="waterIcon" class="webtopIcon" <?php if(isset($_SESSION['waterIcon'])){echo "style=\"".$_SESSION['waterIcon']."\"";}?>>
-			<a href="index.php?waterIcon=true"> <img src="res/water-icon.png" alt="Wasser-Icon" > </a>
+			<a href="index.php?fotoApp=true"> <img src="res/water-icon.png" alt="Wasser-Icon" > </a>
 		</div>
 		
 		<div id="fireIcon" class="webtopIcon" <?php if(isset($_SESSION['fireIcon'])){echo "style=\"".$_SESSION['fireIcon']."\"";}?>>
@@ -51,26 +51,9 @@
 		</div>
 		
 			<?php 
-				switch($_SESSION['popupWindow'])
+				if($_SESSION['popupWindow']!="undefined")
 				{
-					case "Water":
-						include("popupWindow.php");
-						break;
-						
-					case "Fire":
-						include("popupWindow.php");
-						break;
-						
-					case "Leaf":
-						include("popupWindow.php");
-						break;
-						
-					case "Butterfly":
-						include("popupWindow.php");
-						break;
-						
-					default:
-						break;
+					include("popupWindow.php");
 				}
 			?>
 		

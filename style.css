@@ -336,7 +336,34 @@ h1
 	color: red;
 	font-size: 100px;
 }
-	
-	
-	
+
+#drop
+{
+	margin: auto;
+	margin-top: 10px;
+	width: 300px;
+	height: 200px;
+	background-color: rgba(15,15,15,0.5);
+	border: 10px black groove;
+	border-radius: 10px;
+	padding-top: 100px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#drop input
+{
+	display: none;
+}
+
+#dropText
+{
+	margin: auto;
+	text-align: center;
+	color: rgba(240,240,240,0.5);
+}
+
+#response img
+{
+	float: none;
 }

@@ -9,13 +9,20 @@
 	</div>
 	<div id="popupContent">
 		<?php 
-			    ob_start();
-   				phpinfo();
-    			$pinfo = ob_get_contents();
-    			ob_end_clean();
-    
-   				$pinfo = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$pinfo);
-    			echo $pinfo;
+		if($_SESSION['popupWindow'] == "Foto App")
+		{
+			include("fotoUploadApplication.php");
+		}
+		else
+		{
+			ob_start();
+			phpinfo();
+			$pinfo = ob_get_contents();
+			ob_end_clean();
+			
+			$pinfo = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$pinfo);
+			echo $pinfo;
+		}
 		?>
 	</div>
 	
