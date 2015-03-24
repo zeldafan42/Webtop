@@ -7,29 +7,27 @@
 		<input type="file" name="upl" multiple />
 		<input type="hidden" name="MAX_FILE_SIZE" value="1024000" />
 	</div>
-	<div id="response"></div>
+	<div id="response">
+		<?php
+			if(isset($_GET['delete'])){
+				unlink($_GET['delete']);
+			}
+			
+			if(!is_dir("./uploads"))
+			{
+				mkdir("./uploads");
+			}
+			
+			$fileHandle = opendir("./uploads/");
+			
+			while($myFile = readdir($fileHandle)){
+				if($myFile != "." && $myFile != ".."){
+					echo "<p>";
+					echo "<img src='./uploads/".$myFile."'><a href='index.php?delete=./uploads/".$myFile."'>Delete</a>";
+					echo "</p>";
+				}
+			}
+		?>
+	
+	</div>
 </form>
-
-<?php
-
-if(isset($_GET['delete'])){
-	unlink($_GET['delete']);
-}
-
-if(!is_dir("./uploads"))
-{
-	mkdir("./uploads");
-}
-
-$fileHandle = opendir("./uploads/");
-
-while($myFile = readdir($fileHandle)){
-	if($myFile != "." && $myFile != ".."){
-		echo "<p>";
-		echo "<img src='./uploads/".$myFile."'><a href='index.php?delete=./uploads/".$myFile."'>Delete</a>";
-		echo "</p>";
-	}
-}
-
-
-?>
