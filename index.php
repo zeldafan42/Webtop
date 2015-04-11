@@ -58,11 +58,18 @@
 					}
 					else
 					{
-						if(isset($_POST['login']))
+						if(isset($_GET['registration']))
 						{
-							echo "<p id=\"loginError\">Wrong username or password</p>";
+							include("registration.php");
+						}	
+						else 
+						{
+							if(isset($_POST['login']))
+							{
+								echo "<p id=\"loginError\">Wrong username or password</p>";
+							}
+							include("login.php");
 						}
-						include("login.php");
 					}
 					
 					function authenticateuser($user,$password)
