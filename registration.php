@@ -8,6 +8,6 @@
 		<input type="text" name="picture" placeholder="Picture name"/>
 		<input type="text" name="email" placeholder="E-mail adress"/>
 
-		<input type="submit" name="login" value="Login" id="loginButton"/>
+		<input type="submit" name="login" value="Register" id="registrationButton"/>
 	</fieldset>
 </form>

@@ -8,26 +8,29 @@
 	$email = $_POST['email'];
 	$activated = 0;
 	
-	$connect = mysqli_connect ("localhost", "root", "password","brunnhilde");
-	
-	if(mysqli_connect_errno() == 0)
+	if(strcmp($forename,"") == 0 || strcmp($surname,"") == 0 || strcmp($username,"") == 0 || strcmp($password,"") == 0 || strcmp($picture,"") == 0 || strcmp($email,"") == 0)
 	{
-		echo "<p>Verbindung wurde aufgebaut</p>";
-		$entry = "INSERT INTO user (forename, surname, username, password, picture, email, activated) VALUES ('$forename', '$surname', '$username', '$password', '$picture', '$email', '$activated')";
-		
-		$eintrag = mysqli_query($connect,$entry);
-		
-		if($eintrag)
-		{
-			echo "<p>Datensatz wurde erfolgreich hinzugefügt, muss aber noch freigegeben werden</p>";
-		}
-		else {
-			echo $eintrag;
-		}
+		echo "<p>Please insert </p>";
 	}
+	else
+	{
+		$connect = mysqli_connect ("localhost", "root", "password","brunnhilde");
+		
+		if(mysqli_connect_errno() == 0)
+		{
+			echo "<p>Verbindung wurde aufgebaut</p>";
+			$sqlCommand = "INSERT INTO user (forename, surname, username, password, picture, email, activated) VALUES ('$forename', '$surname', '$username', '$password', '$picture', '$email', '$activated')";
+			$entry = $connect->prepare($sqlCommand);
+			$entry->bindparam('ssssssi', $forename, $surname, $username, $password, $picture, $email, $activated);
+			
+			if($entry->execute())
+			{
+				echo "<p>Datensatz wurde erfolgreich hinzugefügt, muss aber noch freigegeben werden</p>";
+			}
 	
-	
-	mysql_close($connect);
+		}
+		mysql_close($connect);
+	}
 	
 	
 	echo "Klicken Sie auf 'OK' um zum Login zurückzukehren";	
