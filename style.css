@@ -254,13 +254,13 @@ h1
 	font-weight: bold;
 }
 
-#loginForm a:visited, a:link
+#loginForm a:visited,#loginForm a:link
 {
 	text-decoration: none;
 	color: #ee7711;
 }
 
-#loginForm a:hover, a:active
+#loginForm a:hover,#loginForm a:active
 {
 	text-decoration: underline;
 	color: #ee7711;
@@ -295,7 +295,7 @@ h1
 	margin: 0px 5px 5px 5px;
 }
 
-#loginForm input[type=text], input[type=password]
+#loginForm input[type=text],#loginForm input[type=password]
 {
 	float: left;
 	margin-left: 0px;
@@ -399,7 +399,7 @@ h1
 	border-style: solid;
 }
 
-#registrationForm input[type=text], input[type=password]
+#registrationForm input[type=text],#registrationForm input[type=password]
 {
 	float: left;
 	margin-left: 80px;
