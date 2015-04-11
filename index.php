@@ -1,5 +1,7 @@
 <?php 
 	session_start();
+	
+	require_once("loginFunctions.php");
 	if(isset($_GET['logout']))
 	{
 		if($_GET['logout'])
@@ -46,7 +48,7 @@
 				<?php 
 					if(!isset($_SESSION['username']) && isset($_POST['username']) && $_POST['password'])
 					{
-						authenticateuser($_POST['username'],$_POST['password']);
+						authenticateUser($_POST['username'],$_POST['password']);
 					}
 					if(isset($_COOKIE['username']) || isset($_SESSION['username']))
 					{
@@ -64,24 +66,29 @@
 						}	
 						else 
 						{
-							if(isset($_POST['login']))
-							{
-								echo "<p id=\"loginError\">Wrong username or password</p>";
-							}
 							include("login.php");
 						}
 					}
 					
-					function authenticateuser($user,$password)
+					function authenticateUser($user,$password)
 					{
-						if(($user == "username") && ($password == "password"))
+						if(ldap_login($user,$password))
 						{
-							if(isset($_POST['stillAlive']))
-							{
-								setcookie("username","".$user,time()+13371337);
-							}
-							$_SESSION['username'] = $user;
+							login_user($user);
 						}
+						elseif (database_login($user,$password))
+						{
+							login_user($user);
+						}
+					}
+					
+					function login_user($username)
+					{
+						if(isset($_POST['stillAlive']))
+						{
+							setcookie("username","".$username,time()+13371337);
+						}
+						$_SESSION['username'] = $username;
 					}
 				?>
 			</div>

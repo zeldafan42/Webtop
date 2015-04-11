@@ -3,7 +3,7 @@
 	$forename = $_POST['forename'];
 	$surname = $_POST['surname'];
 	$username = $_POST['username'];
-	$password = password_hash($_POST['surname'], PASSWORD_BCRYPT);
+	$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 	$picture = $_POST['picture'];
 	$email = $_POST['email'];
 	$activated = 0;
@@ -19,9 +19,9 @@
 		if(mysqli_connect_errno() == 0)
 		{
 			echo "<p>Verbindung wurde aufgebaut</p>";
-			$sqlCommand = "INSERT INTO user (forename, surname, username, password, picture, email, activated) VALUES ('$forename', '$surname', '$username', '$password', '$picture', '$email', '$activated')";
+			$sqlCommand = "INSERT INTO user (forename, surname, username, password, picture, email, activated) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			$entry = $connect->prepare($sqlCommand);
-			$entry->bindparam('ssssssi', $forename, $surname, $username, $password, $picture, $email, $activated);
+			$entry->bind_param('ssssssi', $forename, $surname, $username, $password, $picture, $email, $activated);
 			
 			if($entry->execute())
 			{
@@ -29,7 +29,7 @@
 			}
 	
 		}
-		mysql_close($connect);
+		mysqli_close($connect);
 	}
 	
 	
