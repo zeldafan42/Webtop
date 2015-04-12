@@ -146,9 +146,8 @@ function cropImg($imgfile, $left, $top, $width, $height)
 	if($img)
 	{
 		backup_image($imgfile);
-		arr = {left, $top, $width, $height};
-		
-		imagecrop($img, );
+		$arr = array("x"=>$left, "y"=>$top, "width"=>$width, "height"=>$height);
+		$img = imagecrop($img, $arr);
 		imagepng($img, "./uploads/".$imgfile);
 		create_thumb($imgfile);
 		imagedestroy($img);
