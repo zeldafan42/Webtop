@@ -16,7 +16,7 @@ function show_pics()
 			echo "<a href=\"index.php?delete=".$myFile."\">Mirror</a></br>";
 			echo "<a href=\"index.php?delete=".$myFile."\">Crop</a></br>";
 			echo "<a href=\"index.php?undo=".$myFile."\">Undo</a></br>";
-			echo "<a href=\"index.php?delete=".$myFile."\">Download</a>";
+			echo "<a href=\"./uploads/".$myFile."\" download=\"$myFile\">Download</a>";
 			echo "</div>";
 			echo "</div>";
 		}
