@@ -2,6 +2,7 @@
 	session_start();
 	
 	require_once("loginFunctions.php");
+	require_once("fotoFunctions.php");
 	if(isset($_GET['logout']))
 	{
 		if($_GET['logout'])
@@ -28,16 +29,16 @@
 		<link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 		<script src="jquery-2.1.3.min.js"></script>
 		<script src="jquery-ui.min.js"></script>
-		<script src="helper.js"></script>
 		<script src="jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
 		<script src="jQuery-File-Upload/js/jquery.fileupload.js"></script>
 		<script src="dragAndDrop.js"></script>
+		<script src="helper.js"></script>
 		<script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
 		<script>
 			
 		 	$(function() {
-			 $( ".webtopIcon" ).draggable({scroll: false, stop: function(event, ui){savePosition(this)}});
-			 $( ".popup" ).draggable({scroll: false, handle: ".popupHeader", stop: function(event, ui){savePosition(this)}});
+			 $( ".webtopIcon" ).draggable({scroll: false, containment: "parent", stop: function(event, ui){savePosition(this)}});
+			 $( ".popup" ).draggable({scroll: false, handle: ".popupHeader", containment: "parent", stop: function(event, ui){savePosition(this)}});
 			 $( ".popup" ).resizable({handles: "all", stop: function(event, ui){savePosition(this)}});
 			 $('.fancybox').fancybox();
 			 });

@@ -12,6 +12,17 @@
 			if(isset($_GET['delete'])){
 				unlink("uploads/".$_GET['delete']);
 				unlink("uploads/thumbs/".$_GET['delete']);
+				unlink("uploads/backup/".$_GET['delete']);
+			}
+			
+			if(isset($_GET['undo']))
+			{
+				restore_image($_GET['undo']);
+			}
+			
+			if(isset($_GET['grayscale']))
+			{
+				gray_scale($_GET['grayscale']);
 			}
 			
 			if(!is_dir("./uploads"))
@@ -19,15 +30,7 @@
 				mkdir("./uploads");
 			}
 			
-			$fileHandle = opendir("./uploads/");
-			
-			while($myFile = readdir($fileHandle)){
-				if(!is_dir("./uploads/".$myFile)){
-					echo "<p>";
-					echo "<a class=\"fancybox\" rel=\"group\" href=\"./uploads/".$myFile."\"><img src=\"./uploads/thumbs/".$myFile."\"></a><a href=\"index.php?delete=".$myFile."\">Delete</a>";
-					echo "</p>";
-				}
-			}
+			show_pics();
 		?>
 	
 	</div>

@@ -149,6 +149,44 @@ fieldset
 	border: solid 4px rgba(255,89,213,1.0);
 }
 
+.thumb
+{
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+	
+	float:left;
+	position: relative;
+	margin: 10px;
+	border: 1px solid black;
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+}
+
+.thumb a img
+{
+	margin: 0 auto;
+	display: block;
+}
+
+.fotoCmds
+{
+	visibility: hidden;
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	background-color: rgba(0,0,0,0.2);
+}
+
+.fotoCmds a
+{
+	color: white !important;
+	background-color: rgba(0,0,0,0.5) !important;
+}
+
 h1
 {
 	color: #e8c14b;

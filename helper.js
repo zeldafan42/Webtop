@@ -10,3 +10,15 @@ function savePosition(element)
 	var width = style.width;
 	$.get("positionHandler.php", {id: id, top: top, bottom: bottom, left: left, right: right, width: width, height: height});
 }
+
+function hideCmds(myElement)
+{
+	myElement.find(".fotoCmds").css("visibility", "hidden");
+
+}
+
+function showCmds(myElement)
+{
+	myElement.find(".fotoCmds").css("visibility", "visible");
+
+}
