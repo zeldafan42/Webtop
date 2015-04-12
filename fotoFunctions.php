@@ -11,8 +11,8 @@ function show_pics()
 			echo "<div class=\"fotoCmds\">";
 			echo "<a href=\"index.php?delete=".$myFile."\">Delete</a></br>";
 			echo "<a href=\"index.php?grayscale=".$myFile."\">Grayscale</a></br>";
-			echo "<a href=\"index.php?delete=".$myFile."\">Rotate left</a></br>";
-			echo "<a href=\"index.php?delete=".$myFile."\">Rotate right</a></br>";
+			echo "<a href=\"index.php?rotateLeft=".$myFile."\">Rotate left</a></br>";
+			echo "<a href=\"index.php?rotateRight=".$myFile."\">Rotate right</a></br>";
 			echo "<a href=\"index.php?delete=".$myFile."\">Mirror</a></br>";
 			echo "<a href=\"index.php?delete=".$myFile."\">Crop</a></br>";
 			echo "<a href=\"index.php?undo=".$myFile."\">Undo</a></br>";
@@ -121,14 +121,14 @@ function gray_scale($imgfile)
 	}
 }
 
-function rotate_left($imgfile)
+function rotate($imgfile, $degrees)
 {
 	$img = create_image_from_file($imgfile);
 
 	if($img)
 	{
 		backup_image($imgfile);
-		imagefilter($img, IMG_FILTER_GRAYSCALE);
+		$img = imagerotate($img, $degrees, 0);
 		imagepng($img, "./uploads/".$imgfile);
 		create_thumb($imgfile);
 		imagedestroy($img);
@@ -139,21 +139,4 @@ function rotate_left($imgfile)
 	}
 }
 
-function rotate_right($imgfile)
-{
-	$img = create_image_from_file($imgfile);
-
-	if($img)
-	{
-		backup_image($imgfile);
-		imagerotate($img, $angle, $bgd_color)
-		imagepng($img, "./uploads/".$imgfile);
-		create_thumb($imgfile);
-		imagedestroy($img);
-	}
-	else
-	{
-		return false;
-	}
-}
 ?>

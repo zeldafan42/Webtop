@@ -25,6 +25,16 @@
 				gray_scale($_GET['grayscale']);
 			}
 			
+			if(isset($_GET['rotateLeft']))
+			{
+				rotate($_GET['rotateLeft'],90);
+			}
+			
+			if(isset($_GET['rotateRight']))
+			{
+				rotate($_GET['rotateRight'],-90);
+			}
+			
 			if(!is_dir("./uploads"))
 			{
 				mkdir("./uploads");
