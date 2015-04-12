@@ -5,12 +5,13 @@
 			Drop Here
 		</p>
 		<input type="file" name="upl" multiple />
-		<input type="hidden" name="MAX_FILE_SIZE" value="1024000" />
+		<input type="hidden" name="MAX_FILE_SIZE" value="2024000" />
 	</div>
 	<div id="response">
 		<?php
 			if(isset($_GET['delete'])){
-				unlink($_GET['delete']);
+				unlink("uploads/".$_GET['delete']);
+				unlink("uploads/thumbs/".$_GET['delete']);
 			}
 			
 			if(!is_dir("./uploads"))
@@ -21,9 +22,9 @@
 			$fileHandle = opendir("./uploads/");
 			
 			while($myFile = readdir($fileHandle)){
-				if($myFile != "." && $myFile != ".."){
+				if(!is_dir("./uploads/".$myFile)){
 					echo "<p>";
-					echo "<img src='./uploads/".$myFile."'><a href='index.php?delete=./uploads/".$myFile."'>Delete</a>";
+					echo "<a class=\"fancybox\" rel=\"group\" href=\"./uploads/".$myFile."\"><img src=\"./uploads/thumbs/".$myFile."\"></a><a href=\"index.php?delete=".$myFile."\">Delete</a>";
 					echo "</p>";
 				}
 			}

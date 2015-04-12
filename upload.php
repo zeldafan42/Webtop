@@ -8,6 +8,11 @@ if(!is_dir("./uploads"))
 	mkdir("./uploads");
 }
 
+if(!is_dir("./uploads/thumbs"))
+{
+	mkdir("./uploads/thumbs");
+}
+
 if(isset($_FILES['upl']) &&
 		!$_FILES['upl']['error'] && 
 		$_FILES['upl']['size']> 0 && 
@@ -24,20 +29,72 @@ if(isset($_FILES['upl']) &&
     elseif(move_uploaded_file($_FILES['upl']['tmp_name'], 'uploads/'.$_FILES['upl']['name']))
     {
         echo '<p id="uploadStatus">Upload completed</p>';
+        create_thumb($_FILES['upl']['name']);
     }
     
     $fileHandle = opendir("./uploads/");
     
     while($myFile = readdir($fileHandle)){
-    	if($myFile != "." && $myFile != ".."){
+    	if(!is_dir("./uploads/".$myFile)){
     		echo "<p>";
-			echo "<img src='./uploads/".$myFile."'><a href='index.php?delete=./uploads/".$myFile."'>Delete</a>";
+			echo "<a class=\"fancybox\" rel=\"group\" href=\"./uploads/".$myFile."\"><img src=\"./uploads/thumbs/".$myFile."\"></a><a href=\"index.php?delete=".$myFile."\">Delete</a>";
 			echo "</p>";
     	}
     }
 }
 else
 {
-	echo '<p id="uploadStatus">Upload completed</p>';
+	echo '<p id="uploadStatus">Upload failed</p>';
+}
+
+function create_thumb($imgfile)
+{
+	$imgsize = getimagesize('uploads/'.$imgfile);
+	$imgwidth = $imgsize[0];
+	$imgheight = $imgsize[1];
+	$imgtype = $imgsize[2];
+	
+	switch($imgtype)
+	{
+		case IMG_GIF:
+			$img = imagecreatefromgif('uploads/'.$imgfile);
+			break;
+		case IMG_JPG:
+			$img = imagecreatefromjpeg('uploads/'.$imgfile);
+			break;
+		case IMG_PNG: case 3:
+			$img = imagecreatefrompng('uploads/'.$imgfile);
+			break;
+		default:
+			die('Unsupported imageformat');
+	}
+	
+	$maxthumbwidth = 150;
+	$maxthumbheight = 100;
+
+	$thumbwidth = $imgwidth;
+	$thumbheight = $imgheight;
+
+	if ($thumbwidth > $maxthumbwidth)
+	{
+		$factor = $maxthumbwidth / $thumbwidth;
+		$thumbwidth *= $factor;
+		$thumbheight *= $factor;
+	}
+
+	if ($thumbheight > $maxthumbheight)
+	{
+		$factor = $maxthumbheight / $thumbheight;
+		$thumbwidth *= $factor;
+		$thumbheight *= $factor;
+	}
+
+	$thumb = imagecreatetruecolor($thumbwidth, $thumbheight);
+		
+	imagecopyresampled($thumb, $img, 0, 0, 0, 0, $thumbwidth, $thumbheight, $imgwidth, $imgheight);
+	
+	imagepng($thumb,'uploads/thumbs/'.$imgfile);
+	imagedestroy($img);
+	imagedestroy($thumb);
 }
 ?>

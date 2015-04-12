@@ -15,6 +15,7 @@ $(function(){
 	        success:function(data,error)
 	        {
 	        	$('#response').html(data);
+	        	$('.fancybox').fancybox();
 	        }
 
     	}

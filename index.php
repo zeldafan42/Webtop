@@ -25,18 +25,21 @@
 		<link href="jquery-ui.min.css" rel="stylesheet">
 		<link href="jquery-ui.structure.min.css" rel="stylesheet">
 		<link href="jquery-ui.theme.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 		<script src="jquery-2.1.3.min.js"></script>
 		<script src="jquery-ui.min.js"></script>
 		<script src="helper.js"></script>
 		<script src="jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
 		<script src="jQuery-File-Upload/js/jquery.fileupload.js"></script>
 		<script src="dragAndDrop.js"></script>
+		<script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
 		<script>
 			
 		 	$(function() {
 			 $( ".webtopIcon" ).draggable({scroll: false, stop: function(event, ui){savePosition(this)}});
 			 $( ".popup" ).draggable({scroll: false, handle: ".popupHeader", stop: function(event, ui){savePosition(this)}});
 			 $( ".popup" ).resizable({handles: "all", stop: function(event, ui){savePosition(this)}});
+			 $('.fancybox').fancybox();
 			 });
 				
 		</script>
@@ -48,7 +51,7 @@
 				<?php 
 					if(!isset($_SESSION['username']) && isset($_POST['username']) && $_POST['password'])
 					{
-						authenticateUser($_POST['username'],$_POST['password']);
+						authenticate_user($_POST['username'],$_POST['password']);
 					}
 					if(isset($_COOKIE['username']) || isset($_SESSION['username']))
 					{
@@ -70,7 +73,7 @@
 						}
 					}
 					
-					function authenticateUser($user,$password)
+					function authenticate_user($user,$password)
 					{
 						if(ldap_login($user,$password))
 						{
