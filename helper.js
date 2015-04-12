@@ -42,6 +42,18 @@ function crop(image)
 
 function cropLink(image)
 {
+	imagewidth = parseInt($("#imageToCrop").css("width"));
+	alert(imagewidth);
+
+	/*imageheight = $("#imageToCrop").css("height");
+	imageheight = imagewidth.substring(0, str.Length - 2);
 	
-	$("#crop").html("<a href='index.php?cropImg=" + image + "&" )
+	cropLeft = $("#crop").css("left");
+	cropLeft = cropLeft.substring(0, str.Length - 2);
+	cropTop = $("#crop").css("left");
+	cropTop = cropLeft.substring(0, str.Length - 2);
+	
+	
+	
+	$("#crop").html("<a href='index.php?cropImg=" + image + "&" )*/
 }
