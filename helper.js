@@ -22,3 +22,26 @@ function showCmds(myElement)
 	myElement.find(".fotoCmds").css("visibility", "visible");
 
 }
+
+function crop(image)
+{
+	$("#popupContent").html("<img id='imageToCrop' src='uploads/" + image + "'/>");
+	$("#popupContent").append("<div id='crop'></div>");
+	$("#popupContent").css("overflow","scroll");
+	$("#popupContent").css("position","relative");
+	$("#imageToCrop").css("float","none");
+	$("#crop").css("position","absolute");
+	$("#crop").css("background-color","rgba(255,0,0,0.5)");
+	$("#crop").css("width","100px");
+	$("#crop").css("height","100px");
+	$("#crop").css("top","10px");
+	$("#crop").css("left","10px");
+	$("#crop").resizable({handles: "all", containment:"parent", stop:function(event, ui){cropLink(image)});
+	
+}
+
+function cropLink(image)
+{
+	
+	$("#crop").html("<a href='index.php?cropImg=" + image + "&" )
+}

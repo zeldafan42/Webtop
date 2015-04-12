@@ -35,6 +35,11 @@
 				rotate($_GET['rotateRight'],-90);
 			}
 			
+			if(isset($_GET['crop']))
+			{
+				echo '<script> crop("'.$_GET['crop'].'");</script>';
+			}
+			
 			if(!is_dir("./uploads"))
 			{
 				mkdir("./uploads");
