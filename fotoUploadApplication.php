@@ -40,6 +40,11 @@
 				echo '<script> crop("'.$_GET['crop'].'");</script>';
 			}
 			
+			if(isset($_GET['cropImg']))
+			{
+				cropImg($_GET['cropImg'],$_GET['cropLeft'],$_GET['cropTop'],$_GET['cropWidth'],$_GET['cropHeight']);
+			}
+			
 			if(!is_dir("./uploads"))
 			{
 				mkdir("./uploads");

@@ -139,4 +139,24 @@ function rotate($imgfile, $degrees)
 	}
 }
 
+function cropImg($imgfile, $left, $top, $width, $height)
+{
+	$img = create_image_from_file($imgfile);
+	
+	if($img)
+	{
+		backup_image($imgfile);
+		arr = {left, $top, $width, $height};
+		
+		imagecrop($img, );
+		imagepng($img, "./uploads/".$imgfile);
+		create_thumb($imgfile);
+		imagedestroy($img);
+	}
+	else
+	{
+		return false;
+	}
+}
+
 ?>

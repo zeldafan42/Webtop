@@ -25,35 +25,54 @@ function showCmds(myElement)
 
 function crop(image)
 {
-	$("#popupContent").html("<img id='imageToCrop' src='uploads/" + image + "'/>");
-	$("#popupContent").append("<div id='crop'></div>");
+	$("#popupContent").html("<div id='imageToCrop'></div>")
+	$("#imageToCrop").html("<img id='cropImage' src='uploads/" + image + "'/>");
+	$("#imageToCrop").append("<div id='crop'></div>");
+	$("#imageToCrop").css("display","inline-block");
+	$("#imageToCrop").css("line-height","0px");
+	$("#imageToCrop").css("overflow","hidden");
+	$("#imageToCrop").css("position","absolute");
 	$("#popupContent").css("overflow","scroll");
 	$("#popupContent").css("position","relative");
-	$("#imageToCrop").css("float","none");
+	$("#cropImage").css("float","none");
 	$("#crop").css("position","absolute");
+	$("#crop").css("line-height","normal");
 	$("#crop").css("background-color","rgba(255,0,0,0.5)");
 	$("#crop").css("width","100px");
 	$("#crop").css("height","100px");
 	$("#crop").css("top","10px");
 	$("#crop").css("left","10px");
-	$("#crop").resizable({handles: "all", containment:"parent", stop:function(event, ui){cropLink(image)});
+	$("#crop").append("<p id='croplink'></p>")
+	$("#crop").resizable
+	(
+		{
+			handles: "all", 
+			containment:"parent", 
+			stop: function(event, ui)
+			{
+				cropLink(image);
+			}
+		}
+	);
 	
 }
 
 function cropLink(image)
 {
-	imagewidth = parseInt($("#imageToCrop").css("width"));
-	alert(imagewidth);
-
-	/*imageheight = $("#imageToCrop").css("height");
-	imageheight = imagewidth.substring(0, str.Length - 2);
-	
-	cropLeft = $("#crop").css("left");
-	cropLeft = cropLeft.substring(0, str.Length - 2);
-	cropTop = $("#crop").css("left");
-	cropTop = cropLeft.substring(0, str.Length - 2);
+	imageWidth = parseInt($("#cropImage").css("width"));
+	imageHeight = parseInt($("#cropImage").css("height"));
+	cropLeft = parseInt($("#crop").css("left"));
+	cropTop = parseInt($("#crop").css("top"));	
+	cropWidth = parseInt($("#crop").css("width"));
+	cropHeight = parseInt($("#crop").css("height"));
 	
 	
-	
-	$("#crop").html("<a href='index.php?cropImg=" + image + "&" )*/
+	if(imageWidth >= (cropLeft + cropWidth) && imageHeight >= (cropTop + cropHeight))
+	{
+		$("#croplink").html("<a href='index.php?cropImg=" + image + "&cropLeft=" + cropLeft + "&cropTop=" + cropTop + "&cropWidth=" + cropWidth +"&cropHeight=" + cropHeight + "'>Crop picture</a>");
+	}
+	else
+	{
+		alert("Selection too big");
+	}
 }
