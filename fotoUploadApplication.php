@@ -35,6 +35,11 @@
 				rotate($_GET['rotateRight'],-90);
 			}
 			
+			if(isset($_GET['mirror']))
+			{
+				mirror($_GET['mirror']);
+			}
+			
 			if(isset($_GET['crop']))
 			{
 				echo '<script> crop("'.$_GET['crop'].'");</script>';

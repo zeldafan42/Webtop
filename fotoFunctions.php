@@ -13,7 +13,7 @@ function show_pics()
 			echo "<a href=\"index.php?grayscale=".$myFile."\">Grayscale</a></br>";
 			echo "<a href=\"index.php?rotateLeft=".$myFile."\">Rotate left</a></br>";
 			echo "<a href=\"index.php?rotateRight=".$myFile."\">Rotate right</a></br>";
-			echo "<a href=\"index.php?delete=".$myFile."\">Mirror</a></br>";
+			echo "<a href=\"index.php?mirror=".$myFile."\">Mirror</a></br>";
 			echo "<a href=\"index.php?crop=".$myFile."\">Crop</a></br>";
 			echo "<a href=\"index.php?undo=".$myFile."\">Undo</a></br>";
 			echo "<a href=\"./uploads/".$myFile."\ download=\"$myFile\">Download</a>";
@@ -138,6 +138,27 @@ function rotate($imgfile, $degrees)
 		return false;
 	}
 }
+
+function mirror($imgfile)
+{
+	$img = create_image_from_file($imgfile);
+
+	if($img)
+	{
+		backup_image($imgfile);
+		imageflip($img, IMG_FLIP_HORIZONTAL);
+		echo "<p>Was mirrored</p>";
+		imagepng($img, "./uploads/".$imgfile);
+		create_thumb($imgfile);
+		imagedestroy($img);
+	}
+	else
+	{
+		echo "<p>Was somehow incorrect</p>";
+		return false;
+	}
+}
+
 
 function cropImg($imgfile, $left, $top, $width, $height)
 {

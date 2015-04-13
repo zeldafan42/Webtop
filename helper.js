@@ -23,56 +23,63 @@ function showCmds(myElement)
 
 }
 
-function crop(image)
+/*
+var drawing=false;
+var x = 0;
+var y = 0;
+var x2 = 0;
+var y2 = 0;
+
+
+function loadCanvas(imgfile)
 {
-	$("#popupContent").html("<div id='imageToCrop'></div>")
-	$("#imageToCrop").html("<img id='cropImage' src='uploads/" + image + "'/>");
-	$("#imageToCrop").append("<div id='crop'></div>");
-	$("#imageToCrop").css("display","inline-block");
-	$("#imageToCrop").css("line-height","0px");
-	$("#imageToCrop").css("overflow","hidden");
-	$("#imageToCrop").css("position","absolute");
-	$("#popupContent").css("overflow","scroll");
-	$("#popupContent").css("position","relative");
-	$("#cropImage").css("float","none");
-	$("#crop").css("position","absolute");
-	$("#crop").css("line-height","normal");
-	$("#crop").css("background-color","rgba(255,0,0,0.5)");
-	$("#crop").css("width","100px");
-	$("#crop").css("height","100px");
-	$("#crop").css("top","10px");
-	$("#crop").css("left","10px");
-	$("#crop").append("<p id='croplink'></p>")
-	$("#crop").resizable
-	(
-		{
-			handles: "all", 
-			containment:"parent", 
-			stop: function(event, ui)
-			{
-				cropLink(image);
-			}
-		}
-	);
-	
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+
+    // load image from data url
+    var imageObj = new Image();
+    imageObj.onload = function()
+    {
+      context.drawImage(this, 0, 0);
+    };
+
+    imageObj.src = 'localhost/Webtop/Webtop/uploads/thumbs/'+imgfile+'';
 }
 
-function cropLink(image)
+function startDrawing(evt)
 {
-	imageWidth = parseInt($("#cropImage").css("width"));
-	imageHeight = parseInt($("#cropImage").css("height"));
-	cropLeft = parseInt($("#crop").css("left"));
-	cropTop = parseInt($("#crop").css("top"));	
-	cropWidth = parseInt($("#crop").css("width"));
-	cropHeight = parseInt($("#crop").css("height"));
+	drawing = true;
 	
-	
-	if(imageWidth >= (cropLeft + cropWidth) && imageHeight >= (cropTop + cropHeight))
-	{
-		$("#croplink").html("<a href='index.php?cropImg=" + image + "&cropLeft=" + cropLeft + "&cropTop=" + cropTop + "&cropWidth=" + cropWidth +"&cropHeight=" + cropHeight + "'>Crop picture</a>");
-	}
-	else
-	{
-		alert("Selection too big");
-	}
+	x  = (evt.clientX || evt.pageX);//  - board.offsetLeft;
+    y = (evt.clientY || evt.pageY);// - board.offsetTop;
+
 }
+
+function stopDrawing()
+{
+	drawing = false;
+	var board= document.getElementById("board");
+    var context = board.getContext("2d");
+	context.strokeStyle = "#FF0000";
+	context.lineWidth = 2;
+	context.strokeRect(x,y,x2-x,y2-y);
+}
+
+
+function draw(evt)
+{
+    
+    if(drawing)
+    {
+        var board= document.getElementById("board");
+        var context = board.getContext("2d");
+        context.strokeStyle = "#FF0000";
+        x2  = (evt.clientX || evt.pageX);//  - board.offsetLeft;
+        y2 = (evt.clientY || evt.pageY);// - board.offsetTop;
+
+    }
+    
+    
+}
+    */
+        
