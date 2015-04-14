@@ -36,8 +36,7 @@ function ldap_login($loginname,$password)
 				$dn=$info[0]["dn"];
 				// bind
 				//$dn = "uid=".$loginname.", ou=People, dc=technikum-wien, dc=at";
-				$pw = $loginpw;
-				if(! @ldap_bind($ds, $dn, $pw) || !$loginpw) {
+				if(! @ldap_bind($ds, $dn, $password) || !$password) {
 					return false;
 				} else {
 					unset($loginpw);
