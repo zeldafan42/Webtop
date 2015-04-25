@@ -61,17 +61,8 @@ function database_login($loginname,$password)
 		$stmt->execute();
 		$stmt->bind_result($database_password);
 		$stmt->fetch();
+		$stmt->free_result();
 		$stmt->close();
-		
-		$stmt2 = $connect->prepare("SELECT activated FROM user WHERE username = ?");
-		$stmt2->bind_param('s', $loginname);
-		
-		$stmt2->execute();
-		$stmt2->bind_result($activated);
-		$stmt2->fetch();
-		
-		$stmt2->free_result();
-		$stmt2->close();
 
 		$connect->close();
 	}
@@ -81,14 +72,7 @@ function database_login($loginname,$password)
 	{
 		if(password_verify($password, $database_password))
 		{
-			if($activated == 1)
-			{
-				return true;
-			}
-			else
-			{
-				echo "<p id=\"loginError\">User not activated</p>";
-			}
+			return true;
 		}
 		else
 		{

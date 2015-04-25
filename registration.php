@@ -1,5 +1,5 @@
 
-<form action="registrationHandler.php" method="POST" id="registrationForm">
+<form action="registrationHandler.php" method="POST" id="registrationForm" enctype="multipart/form-data">
 	<fieldset>
 		<input type="text" name="forename" placeholder="Forename"/>
 		<input type="text" name="surname" placeholder="Surname"/>

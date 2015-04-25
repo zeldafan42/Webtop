@@ -164,8 +164,9 @@ function cropImg($imgfile, $left, $top, $width, $height)
 {
 	$img = create_image_from_file($imgfile);
 	
-	if($img)
+	if($img && is_numeric($left) && is_numeric($top) && is_numeric($width) && is_numeric($height))
 	{
+		
 		backup_image($imgfile);
 		$arr = array("x"=>$left, "y"=>$top, "width"=>$width, "height"=>$height);
 		$img = imagecrop($img, $arr);

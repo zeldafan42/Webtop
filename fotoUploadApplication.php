@@ -45,7 +45,7 @@
 				echo '<script> crop("'.$_GET['crop'].'");</script>';
 			}
 			
-			if(isset($_GET['cropImg']))
+			if(isset($_GET['cropImg']) && isset($_GET['cropLeft']) && isset($_GET['cropTop']) && isset($_GET['cropWidth']) && isset($_GET['cropHeight']))
 			{
 				cropImg($_GET['cropImg'],$_GET['cropLeft'],$_GET['cropTop'],$_GET['cropWidth'],$_GET['cropHeight']);
 			}
