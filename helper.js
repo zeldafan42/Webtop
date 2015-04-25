@@ -8,7 +8,7 @@ function savePosition(element)
 	var left = style.left;
 	var right = style.right;
 	var width = style.width;
-	$.get("positionHandler.php", {id: id, top: top, bottom: bottom, left: left, right: right, width: width, height: height});
+	$.post("positionHandler.php", {id: id, top: top, bottom: bottom, left: left, right: right, width: width, height: height});
 }
 
 function hideCmds(myElement)

@@ -1,11 +1,17 @@
 <?php
 	session_start();
-	$_SESSION[$_GET['id']] = getStyle();
+	$_SESSION[$_POST['id']] = getStyle();
+	
+	$width = $_POST['width'];
+	$height = $_POST['height'];
+	$top = $_POST['top'];
+	$right = $_POST['right'];
+	$bottom = $_POST['bottom'];
+	$left = $_POST['left'];
+	
+	$positions = array($width,$height,$top,$right,$bottom,$left);
+	
+	$positions = correctInput($positions);
 	
 	
-	function getStyle()
-	{
-		$styleTemp = "width: ".$_GET['width']."; height: ".$_GET['height']."; top: ".$_GET['top']."; right: ".$_GET['right']."; bottom: ".$_GET['bottom']."; left: ".$_GET['left'];
-		return $styleTemp;	
-	}
 ?>
