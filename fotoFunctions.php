@@ -23,7 +23,7 @@ function show_pics()
 	}
 }
 
-function create_thumb($imgfile)
+function create_thumb($imgfile,$targetWidth,$targetHeight)
 {
 	$imgsize = getimagesize('uploads/'.$imgfile);
 	$imgwidth = $imgsize[0];
@@ -33,8 +33,8 @@ function create_thumb($imgfile)
 	
 	if($img)
 	{
-		$maxthumbwidth = 150;
-		$maxthumbheight = 150;
+		$maxthumbwidth = $targetWidth;
+		$maxthumbheight = $targetHeight;
 	
 		$thumbwidth = $imgwidth;
 		$thumbheight = $imgheight;
@@ -75,7 +75,7 @@ function backup_image($imgfile)
 function restore_image($imgfile)
 {
 	copy("./uploads/backup/".$imgfile, "./uploads/".$imgfile);
-	create_thumb($imgfile);
+	create_thumb($imgfile,150,150);
 }
 
 function create_image_from_file($imgfile)
@@ -112,7 +112,7 @@ function gray_scale($imgfile)
 		backup_image($imgfile);
 		imagefilter($img, IMG_FILTER_GRAYSCALE);
 		imagepng($img, "./uploads/".$imgfile);
-		create_thumb($imgfile);
+		create_thumb($imgfile,150,150);
 		imagedestroy($img);
 	}
 	else
@@ -130,7 +130,7 @@ function rotate($imgfile, $degrees)
 		backup_image($imgfile);
 		$img = imagerotate($img, $degrees, 0);
 		imagepng($img, "./uploads/".$imgfile);
-		create_thumb($imgfile);
+		create_thumb($imgfile,150,150);
 		imagedestroy($img);
 	}
 	else
@@ -149,7 +149,7 @@ function mirror($imgfile)
 		imageflip($img, IMG_FLIP_HORIZONTAL);
 		echo "<p>Was mirrored</p>";
 		imagepng($img, "./uploads/".$imgfile);
-		create_thumb($imgfile);
+		create_thumb($imgfile,150,150);
 		imagedestroy($img);
 	}
 	else
@@ -170,7 +170,7 @@ function cropImg($imgfile, $left, $top, $width, $height)
 		$arr = array("x"=>$left, "y"=>$top, "width"=>$width, "height"=>$height);
 		$img = imagecrop($img, $arr);
 		imagepng($img, "./uploads/".$imgfile);
-		create_thumb($imgfile);
+		create_thumb($imgfile,150,150);
 		imagedestroy($img);
 	}
 	else
