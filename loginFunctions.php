@@ -60,9 +60,10 @@ function database_login($loginname,$password)
 		
 		$stmt->execute();
 		$stmt->bind_result($database_password);
-		$stmt->fetch();
 		$stmt->free_result();
+		$stmt->fetch();
 		$stmt->close();
+		
 
 		$connect->close();
 	}
@@ -86,5 +87,4 @@ function database_login($loginname,$password)
 		return false;
 	}
 }
-
 ?>
