@@ -12,6 +12,8 @@
 	
 	$positions = array($id, $width,$height,$top,$right,$bottom,$left);
 	
+	require_once("loginFunctions.php");
+	
 	$positions = correctInput($positions);
 	
 	if(strcmp($forename,"") == 0 || strcmp($surname,"") == 0 || strcmp($username,"") == 0 || strcmp($password,"") == 0 || strcmp($picture,"") == 0 || strcmp($email,"") == 0)

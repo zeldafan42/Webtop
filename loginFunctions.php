@@ -88,7 +88,7 @@ function database_login($loginname,$password)
 	}
 }
 
-function checkInput($array)
+function correctInput($array)
 {
 	$array = str_replace('\\', '', $array);
 	$array = str_replace('\"', '', $array);

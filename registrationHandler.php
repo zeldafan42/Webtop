@@ -8,6 +8,8 @@
 	
 	$userdata = array($forename,$surname,$username,$email);
 	
+	require_once("loginFunctions.php");
+	
 	$userdata = correctInput($userdata);
 	
 	if(strcmp($forename,"") == 0 || strcmp($surname,"") == 0 || strcmp($username,"") == 0 || strcmp($password,"") == 0 || strcmp($picture,"") == 0 || strcmp($email,"") == 0)
