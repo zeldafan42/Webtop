@@ -67,6 +67,10 @@
 						if(isset($_GET['registration']))
 						{
 							include("registration.php");
+						}
+						else if(isset($_GET['forgotPassword']))
+						{
+							include("forgotPassword.php");
 						}	
 						else 
 						{

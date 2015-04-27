@@ -383,8 +383,31 @@ h1
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	color: red;
-	font-size: 100px;
+	font-size: 40px;
+	margin-left: auto;
+	margin-right: auto;
 }
+
+#mailError
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: red;
+	font-size: 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#mailSuccess
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: green;
+	font-size: 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 
 #drop
 {
@@ -465,4 +488,97 @@ h1
 	font-weight: bold;
 	color: #e8c14b;
 	font-size: 25px;
+}
+
+#registrationButton:hover
+{
+	float: left;
+	margin: 10px 0px 10px 55px;
+	width: 280px;
+	height: 40px;
+	border: 5px RGB(255,0,221);
+	border-radius: 5px;
+	background: #ff80ff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #e8c14b;
+	font-size: 25px;
+}
+
+#forgotPasswordForm
+{
+	color: #e8c14b;
+	font-size: 20px;
+	margin: 15% auto;
+	padding: 1%;
+	width: 400px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+#forgotPasswordForm fieldset
+{
+	border-color: rgba(255,89,213,1.0);
+	border-width: 3px;
+	border-radius: 40px;
+	background-color: rgba(0,0,0,0.5);
+	border-style: solid;
+}
+
+#forgotPasswordButton
+{
+	float: left;
+	margin: 10px 0px 10px 55px;
+	width: 280px;
+	height: 40px;
+	border: 5px RGB(255,0,221);
+	border-radius: 5px;
+	background: #ff50ee;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #e8c14b;
+	font-size: 25px;
+}
+
+#forgotPasswordButton:hover
+{
+	float: left;
+	margin: 10px 0px 10px 55px;
+	width: 280px;
+	height: 40px;
+	border: 5px RGB(255,0,221);
+	border-radius: 5px;
+	background: #ff80ff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #e8c14b;
+	font-size: 25px;
+}
+
+#forgotPasswordForm input[type=text]
+{
+	float: left;
+	margin-left: 80px;
+	margin-top: 10px;
+	line-height: 30px;
+	text-align: left;
+	width: 200px;
+	background: RGB(100,100,100);
+	padding-left: 5%;
+	border: solid 5px RGB(100,100,100);
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+
+#forgotPasswordForm a:visited,#forgotPasswordForm a:link
+{
+	text-decoration: none;
+	color: #ee7711;
+}
+
+#forgotPasswordForm a:hover,#forgotPasswordForm a:active
+{
+	text-decoration: underline;
+	color: #ee7711;
 }
