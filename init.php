@@ -23,8 +23,8 @@
 					id INT(11) AUTO_INCREMENT PRIMARY KEY,
 					forename VARCHAR(64) NOT NULL,
 					surname VARCHAR(64) NOT NULL,
-					username VARCHAR(64) NOT NULL,
-					password VARCHAR(256) NOT NULL UNIQUE,
+					username VARCHAR(64) NOT NULL UNIQUE,
+					password VARCHAR(256) NOT NULL,
 					picture VARCHAR(128) NOT NULL,
 					email VARCHAR(64) NOT NULL
 					)";
