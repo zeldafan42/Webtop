@@ -437,7 +437,7 @@ h1
 	border-style: solid;
 }
 
-#registrationForm input[type=text],#registrationForm input[type=password]
+#registrationForm input[type=text],#registrationForm input[type=password], #registrationForm label
 {
 	float: left;
 	margin-left: 80px;
@@ -449,6 +449,7 @@ h1
 	padding-left: 5%;
 	border: solid 5px RGB(100,100,100);
 	border-radius: 5px;
+	overflow: hidden;
 }
 
 #registrationButton

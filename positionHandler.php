@@ -9,7 +9,7 @@
 	$bottom = $_POST['bottom'];
 	$left = $_POST['left'];
 	
-	$positions = array($id, $width,$height,$top,$right,$bottom,$left);
+	$positions = array($appname, $width,$height,$top,$right,$bottom,$left);
 	
 	require_once("loginFunctions.php");
 	
@@ -24,7 +24,7 @@
 	$left = $positions[6];
 	
 	
-	if(strcmp($forename,"") == 0 || strcmp($surname,"") == 0 || strcmp($username,"") == 0 || strcmp($password,"") == 0 || strcmp($picture,"") == 0 || strcmp($email,"") == 0)
+	if(strcmp($appname,"") == 0 || strcmp($width,"") == 0 || strcmp($height,"") == 0 || strcmp($top,"") == 0 || strcmp($right,"") == 0 || strcmp($bottom,"") == 0 || strcmp($left,"") == 0)
 	{
 		echo "<p>Error: Positions were modified</p>";
 	}
@@ -47,7 +47,7 @@
 			
 			
 			$sqlCommand = "INSERT INTO position (id, appname, width, height, topoffset, rightoffset, bottomoffset, leftoffset) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-							ON DUPLICATE KEY UPDATE width=Values(?) height=VALUES(?) topoffset=VALUES(?) rightoffset=VALUES(?) bottomoffset=VALUES(?) leftoffset=VALUES(?)";
+							ON DUPLICATE KEY UPDATE width=?, height=?, topoffset=?, rightoffset=?, bottomoffset=?, leftoffset=?";
 			
 			$entry = $connect->prepare($sqlCommand);
 			

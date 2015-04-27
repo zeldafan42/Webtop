@@ -38,21 +38,22 @@
 			
 		?>
 		
-		<div id="waterIcon" class="webtopIcon" <?php echo "style=\"".getStyle(fotoApp)."\"";?>>
+		<div id="waterIcon" class="webtopIcon" <?php echo "style=\"".getStyle("fotoApp")."\"";?>>
 			<a href="index.php?fotoApp=true"> <img src="res/water-icon.png" alt="Wasser-Icon" > </a>
 		</div>
 		
-		<div id="fireIcon" class="webtopIcon" <?php echo "style=\"".getStyle(fireApp)."\"";?>>
+		<div id="fireIcon" class="webtopIcon" <?php echo "style=\"".getStyle("fireApp")."\"";?>>
 			<a href="index.php?fireIcon=true"> <img src="res/fire-icon.png" alt="Feuer-Icon" > </a>
 		</div>
 		
-		<div id="leafIcon" class="webtopIcon" <?php echo "style=\"".getStyle(leafApp)."\"";?>>
+		<div id="leafIcon" class="webtopIcon" <?php echo "style=\"".getStyle("leafApp")."\"";?>>
 			<a href="index.php?leafIcon=true"> <img src="res/leaf-icon.png" alt="Blatt-Icon" > </a>
 		</div>
 		
-		<div id="butterflyIcon" class="webtopIcon" <?php echo "style=\"".getStyle(butterflyApp)."\"";?>>
+		<div id="butterflyIcon" class="webtopIcon" <?php echo "style=\"".getStyle("butterflyApp")."\"";?>>
 			<a href="index.php?butterflyIcon=true"> <img src="res/butterfly-icon.png" alt="Schmetterling-Icon" > </a>
 		</div>
+		<div id="posResult"></div>
 		
 			<?php 
 				if($_SESSION['popupWindow']!="undefined")
