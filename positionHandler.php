@@ -41,8 +41,6 @@
 			
 			$entry->bind_param('isssssssssssss', $id, $appname, $width, $height, $top, $right, $bottom, $left, $width, $height, $top, $right, $bottom, $left);
 			$entry->execute();
-			echo "executed";
-		
 		}
 		$connect->close();
 	}
