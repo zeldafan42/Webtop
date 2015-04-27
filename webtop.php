@@ -39,7 +39,7 @@
 	{
 		if(!in_array("leafApp", $apps))
 		{
-			createPopupWindow("leafApp");
+			createPopupWindow("Leaf App");
 		}
 	}
 	if(isset($_GET['butterflyIcon']))

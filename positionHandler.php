@@ -33,7 +33,6 @@
 			$stmt->close();
 			
 			
-			
 			$sqlCommand = "INSERT INTO position (id, appname, width, height, topoffset, rightoffset, bottomoffset, leftoffset, closed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)
 							ON DUPLICATE KEY UPDATE width=?, height=?, topoffset=?, rightoffset=?, bottomoffset=?, leftoffset=?, closed=0";
 			

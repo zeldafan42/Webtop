@@ -13,6 +13,10 @@
 		{
 			include("fotoUploadApplication.php");
 		}
+		else if($appname == "Leaf App")
+		{
+			include("profileApp.php");
+		}
 		else
 		{
 			ob_start();
