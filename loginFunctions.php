@@ -87,4 +87,23 @@ function database_login($loginname,$password)
 		return false;
 	}
 }
+
+function checkInput($array)
+{
+	$array = str_replace('\\', '', $array);
+	$array = str_replace('\"', '', $array);
+	$array = str_replace('\'', '', $array);
+	$array = str_replace(';', '', $array);
+	$array = str_replace('$', '', $array);
+	$array = str_replace('(', '', $array);
+	$array = str_replace(')', '', $array);
+	$array = str_replace('[', '', $array);
+	$array = str_replace(']', '', $array);
+	$array = str_replace('{', '', $array);
+	$array = str_replace('}', '', $array);
+	$array = str_replace('=', '', $array);
+	
+	return $array;
+	
+}
 ?>
