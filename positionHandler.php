@@ -26,15 +26,15 @@
 	
 	if(strcmp($appname,"") == 0 || strcmp($width,"") == 0 || strcmp($height,"") == 0 || strcmp($top,"") == 0 || strcmp($right,"") == 0 || strcmp($bottom,"") == 0 || strcmp($left,"") == 0)
 	{
-		echo "<p>Error: Positions were modified</p>";
+		return;
 	}
 	else
 	{
-		$connect = mysqli_connect ("localhost", "root", "password","brunnhilde");
+		$connect = new mysqli ("localhost", "root", "password","brunnhilde");
 		
-		if(mysqli_connect_errno() == 0)
+		if($connect->errno == 0)
 		{
-			echo "<p>Verbindung wurde aufgebaut</p>";
+			echo "Verbindung wurde aufgebaut";
 			
 			$stmt = $connect->prepare("SELECT id FROM user WHERE username = ?");
 			$stmt->bind_param('s', $_SESSION['username']);
@@ -46,21 +46,18 @@
 			
 			
 			
-			$sqlCommand = "INSERT INTO position (id, appname, width, height, topoffset, rightoffset, bottomoffset, leftoffset) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-							ON DUPLICATE KEY UPDATE width=?, height=?, topoffset=?, rightoffset=?, bottomoffset=?, leftoffset=?";
+			$sqlCommand = "INSERT INTO position (id, appname, width, height, topoffset, rightoffset, bottomoffset, leftoffset, closed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)
+							ON DUPLICATE KEY UPDATE width=?, height=?, topoffset=?, rightoffset=?, bottomoffset=?, leftoffset=?, closed=0";
 			
 			$entry = $connect->prepare($sqlCommand);
 			
 			
-			$entry->bind_param('isiiiiiiiiiiii', $id, $appname, $width, $height, $top, $right, $bottom, $left, $width, $height, $top, $right, $bottom, $left);
-				
-			if($entry->execute())
-			{
-				echo "<p>Popupdata was updated</p>";
-			}
+			$entry->bind_param('isssssssssssss', $id, $appname, $width, $height, $top, $right, $bottom, $left, $width, $height, $top, $right, $bottom, $left);
+			$entry->execute();
+			echo "executed";
 		
 		}
-		mysqli_close($connect);
+		$connect->close();
 	}
 	
 	

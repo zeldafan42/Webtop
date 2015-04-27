@@ -1,33 +1,53 @@
 <?php
 		
 	require_once("positionFunctions.php");
+	require_once("popupWindow.php");
 
+	if(isset($_GET['closePopup']))
+	{
+		closeApp($_GET['closePopup']);
+	}
+	
+	$apps = getOpenWindws();
+	
+	foreach ($apps as $appname)
+	{
+		createPopupWindow($appname);
+	}
+	
 	if(!isset($_SESSION['startMenu']))
 	{
 		$_SESSION['startMenu'] = false;
 	}
 	
-	if(!isset($_SESSION['popupWindow']) || isset($_GET['closePopup']))
-	{
-		$_SESSION['popupWindow'] = "undefined";
-	}
-	
 	if(isset($_GET['fotoApp']))
 	{
-		$_SESSION['popupWindow'] = "Foto App";
+		if(!in_array("Foto App", $apps))
+		{
+			createPopupWindow("Foto App");
+		}
 	}
 	
 	if(isset($_GET['fireIcon']))
 	{
-		$_SESSION['popupWindow'] = "Fire";
+		if(!in_array("fireApp", $apps))
+		{
+			createPopupWindow("fireApp");
+		}
 	}
 	if(isset($_GET['leafIcon']))
 	{
-		$_SESSION['popupWindow'] = "Leaf";
+		if(!in_array("leafApp", $apps))
+		{
+			createPopupWindow("leafApp");
+		}
 	}
 	if(isset($_GET['butterflyIcon']))
 	{
-		$_SESSION['popupWindow'] = "Butterfly";
+		if(!in_array("butterflyApp", $apps))
+		{
+			createPopupWindow("butterflyApp");
+		}
 	}
 	if(isset($_GET['openMenu']))
 	{
@@ -52,14 +72,6 @@
 	echo "<div id=\"butterflyIcon\" class=\"webtopIcon\" style=\"".getStyle("butterflyIcon")."\">";
 	echo "<a href=\"index.php?butterflyIcon=true\"> <img src=\"res/butterfly-icon.png\" alt=\"Schmetterling-Icon\" > </a>";
 	echo "</div>";
-	
-	echo "<div id=\"posResult\"></div>";
-	
-	
-	if($_SESSION['popupWindow']!="undefined")
-	{
-		include("popupWindow.php");
-	}
 		
 ?>
 		

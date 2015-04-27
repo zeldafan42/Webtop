@@ -39,7 +39,7 @@
 		 	$(function() {
 			 $( ".webtopIcon" ).draggable({scroll: false, containment: "parent", stop: function(event, ui){savePosition(this)}});
 			 $( ".popup" ).draggable({scroll: false, handle: ".popupHeader", containment: "parent", stop: function(event, ui){savePosition(this)}});
-			 $( ".popup" ).resizable({handles: "all", stop: function(event, ui){savePosition(this)}});
+			 $( ".popup" ).resizable({handles: "all", stop: function(event, ui){savePosition(this)}, create: function(event, ui){savePosition(this)}});
 			 $('.fancybox').fancybox();
 			 });
 				

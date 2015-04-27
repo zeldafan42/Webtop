@@ -1,7 +1,7 @@
 function savePosition(element)
 {
 	var id = element.id;
-	var style = element.style;
+	var style = window.getComputedStyle(element);
 	var height = style.height;
 	var top = style.top;
 	var bottom = style.bottom;
@@ -11,10 +11,7 @@ function savePosition(element)
 	$.post
 	(
 			"positionHandler.php",
-			{id: id, top: top, bottom: bottom, left: left, right: right, width: width, height: height},
-			function(data){
-				$('#posResult').html(data);
-				}
+			{id: id, top: top, bottom: bottom, left: left, right: right, width: width, height: height}
 	);
 }
 
