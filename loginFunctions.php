@@ -60,8 +60,8 @@ function database_login($loginname,$password)
 		
 		$stmt->execute();
 		$stmt->bind_result($database_password);
-		$stmt->free_result();
 		$stmt->fetch();
+		$stmt->free_result();
 		$stmt->close();
 		
 
