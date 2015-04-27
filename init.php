@@ -1,7 +1,7 @@
 <?php
 	$conn = new mysqli("localhost", "root", "password");
 	
-	if($conn->connect_error)
+	if($conn->errno != 0)
 	{
 		die("Connection failed: " . $conn->connect_error);
 	}

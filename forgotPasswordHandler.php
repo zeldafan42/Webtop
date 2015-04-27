@@ -4,11 +4,11 @@ require_once("loginFunctions.php");
 
 if(isset($_POST['username']))
 {
-	$connect = mysqli_connect ("localhost", "root", "password","brunnhilde");
+	$connect = new mysqli("localhost", "root", "password","brunnhilde");
 	
 	$username = correctInput($_POST['username']);
 	
-	if(mysqli_connect_errno() == 0)
+	if($connect->errno == 0)
 	{
 		echo "<p>Verbindung wurde aufgebaut</p>";
 			

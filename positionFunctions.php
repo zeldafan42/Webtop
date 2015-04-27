@@ -2,9 +2,9 @@
 	function getStyle($appname)
 	{
 	
-		$connect = mysqli_connect ("localhost", "root", "password","brunnhilde");
+		$connect = new mysqli("localhost", "root", "password","brunnhilde");
 	
-		if(mysqli_connect_errno() == 0)
+		if($connect->errno == 0)
 		{
 	
 			$stmt = $connect->prepare("SELECT id FROM user WHERE username = ?");
@@ -53,9 +53,9 @@
 			return;
 		}
 		
-		$connect = mysqli_connect ("localhost", "root", "password","brunnhilde");
+		$connect = new mysqli("localhost", "root", "password","brunnhilde");
 		
-		if(mysqli_connect_errno() == 0)
+		if($connect->errno == 0)
 		{
 		
 			$stmt2 = $connect->prepare("SELECT appname, closed FROM position WHERE id = ?");
@@ -84,9 +84,9 @@
 	
 	function getUserId()
 	{
-		$connect = mysqli_connect ("localhost", "root", "password","brunnhilde");
+		$connect = new mysqli("localhost", "root", "password","brunnhilde");
 		
-		if(mysqli_connect_errno() == 0)
+		if($connect->errno == 0)
 		{
 		
 			$stmt = $connect->prepare("SELECT id FROM user WHERE username = ?");
@@ -112,9 +112,9 @@
 			return;
 		}
 		
-		$connect = mysqli_connect ("localhost", "root", "password","brunnhilde");
+		$connect = new mysqli("localhost", "root", "password","brunnhilde");
 		
-		if(mysqli_connect_errno() == 0)
+		if($connect->errno == 0)
 		{
 			$stmt2 = $connect->prepare("UPDATE position SET closed=1 WHERE id = ? AND appname = ?");
 			$stmt2->bind_param('ss', $id, $appname);

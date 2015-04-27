@@ -53,7 +53,7 @@ function database_login($loginname,$password)
 	$connect = new mysqli("localhost", "root", "password", "brunnhilde");
 	
 	
-	if(mysqli_connect_errno() == 0)
+	if($connect->errno == 0)
 	{
 		$stmt = $connect->prepare("SELECT password FROM user WHERE username = ?");
 		$stmt->bind_param('s', $loginname);
@@ -109,7 +109,7 @@ function correctInput(&$array)
 
 function generateRandomString($length)
 {
-	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-_!"§$%&/+*~';
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-_!"$%&/+*~';
 	$charactersLength = strlen($characters);
 	$randomString = '';
 	
