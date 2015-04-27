@@ -1,21 +1,12 @@
 <?php	
-	$forename = $_POST['forename'];
-	$surname = $_POST['surname'];
-	$username = $_POST['username'];
-	$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-	$picture = $_POST['picture'];
-	$email = $_POST['email'];
-	
-	$userdata = array($forename,$surname,$username,$email);
-	
 	require_once("loginFunctions.php");
 	
-	correctInput($userdata);
-	
-	$forename = $userdata[0];
-	$surname = $userdata[1];
-	$username = $userdata[2];
-	$email = $userdata[3];
+	$forename = correctInput($_POST['forename']);
+	$surname = correctInput($_POST['surname']);
+	$username = correctInput($_POST['username']);
+	$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+	$picture = $_POST['picture'];
+	$email = correctInput($_POST['email']);
 	
 	if(strcmp($forename,"") == 0 || strcmp($surname,"") == 0 || strcmp($username,"") == 0 || strcmp($password,"") == 0 || strcmp($picture,"") == 0 || strcmp($email,"") == 0)
 	{

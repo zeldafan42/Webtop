@@ -5,8 +5,8 @@
 		<input type="text" name="surname" placeholder="Surname"/>
 		<input type="text" name="username" placeholder="Nickname"/>
 		<input type="password" name="password" placeholder="Password"/>
-		<label>User Picture:
-			<input type="file" name="picture" placeholder="Picture name"/>
+		<label>Your Picture:
+			<input type="file" name="picture"/>
 		</label>
 		<input type="text" name="email" placeholder="E-mail adress"/>
 

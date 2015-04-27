@@ -1,27 +1,15 @@
 <?php
 	session_start();
 	
-	$appname = $_POST['id'];
-	$width = $_POST['width'];
-	$height = $_POST['height'];
-	$top = $_POST['top'];
-	$right = $_POST['right'];
-	$bottom = $_POST['bottom'];
-	$left = $_POST['left'];
-	
-	$positions = array($appname, $width,$height,$top,$right,$bottom,$left);
-	
 	require_once("loginFunctions.php");
 	
-	correctInput($positions);
-	
-	$appname = $positions[0];
-	$width = $positions[1];
-	$height = $positions[2];
-	$top = $positions[3];
-	$right = $positions[4];
-	$bottom = $positions[5];
-	$left = $positions[6];
+	$appname = correctInput($_POST['id']);
+	$width = correctInput($_POST['width']);
+	$height = correctInput($_POST['height']);
+	$top = correctInput($_POST['top']);
+	$right = correctInput($_POST['right']);
+	$bottom = correctInput($_POST['bottom']);
+	$left = correctInput($_POST['left']);
 	
 	
 	if(strcmp($appname,"") == 0 || strcmp($width,"") == 0 || strcmp($height,"") == 0 || strcmp($top,"") == 0 || strcmp($right,"") == 0 || strcmp($bottom,"") == 0 || strcmp($left,"") == 0)
