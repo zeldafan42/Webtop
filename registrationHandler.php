@@ -10,7 +10,12 @@
 	
 	require_once("loginFunctions.php");
 	
-	$userdata = correctInput($userdata);
+	correctInput($userdata);
+	
+	$forename = $userdata[0];
+	$surname = $userdata[1];
+	$username = $userdata[2];
+	$email = $userdata[3];
 	
 	if(strcmp($forename,"") == 0 || strcmp($surname,"") == 0 || strcmp($username,"") == 0 || strcmp($password,"") == 0 || strcmp($picture,"") == 0 || strcmp($email,"") == 0)
 	{

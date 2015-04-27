@@ -14,7 +14,16 @@
 	
 	require_once("loginFunctions.php");
 	
-	$positions = correctInput($positions);
+	correctInput(&$positions);
+	
+	$id = $positions[0];
+	$width = $positions[1];
+	$height = $positions[2];
+	$top = $positions[3];
+	$right = $positions[4];
+	$bottom = $positions[5];
+	$left = $positions[6];
+	
 	
 	if(strcmp($forename,"") == 0 || strcmp($surname,"") == 0 || strcmp($username,"") == 0 || strcmp($password,"") == 0 || strcmp($picture,"") == 0 || strcmp($email,"") == 0)
 	{
