@@ -6,6 +6,11 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 	
+	if($conn->query("DROP DATABASE IF EXISTS brunnhilde") === FALSE)
+	{
+		die("Error dropping database");
+	}
+	
 	if($conn->query("CREATE DATABASE IF NOT EXISTS brunnhilde") === FALSE)
 	{
 		die("Error creating database");		
