@@ -14,9 +14,9 @@
 	
 	require_once("loginFunctions.php");
 	
-	correctInput(&$positions);
+	correctInput($positions);
 	
-	$id = $positions[0];
+	$appname = $positions[0];
 	$width = $positions[1];
 	$height = $positions[2];
 	$top = $positions[3];
