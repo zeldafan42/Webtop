@@ -376,6 +376,7 @@ h1
 	font-weight: bold;
 	color: #e8c14b;
 	font-size: 25px;
+	cursor: pointer;
 }
 
 #loginError
@@ -503,6 +504,7 @@ h1
 	font-weight: bold;
 	color: #e8c14b;
 	font-size: 25px;
+	cursor: pointer;
 }
 
 #forgotPasswordForm
@@ -553,6 +555,7 @@ h1
 	font-weight: bold;
 	color: #e8c14b;
 	font-size: 25px;
+	cursor: pointer;
 }
 
 #forgotPasswordForm input[type=text]
@@ -573,6 +576,7 @@ h1
 
 #forgotPasswordForm a:visited,#forgotPasswordForm a:link
 {
+	margin-left: 20px;
 	text-decoration: none;
 	color: #ee7711;
 }

@@ -16,7 +16,7 @@
 <form action="forgotPasswordHandler.php" method="POST" id="forgotPasswordForm" enctype="multipart/form-data">
 	<fieldset>
 		<p><input type="text" name="username" placeholder="Nickname"/></p>
-		<div><a href="index.php">Zur&uuml;ck zum Login</a></div>
+		<p><a href="index.php">Zur&uuml;ck zum Login</a></p>
 		<input type="submit" name="login" value="Send new Password" id="forgotPasswordButton"/>
 	</fieldset>
 </form>
