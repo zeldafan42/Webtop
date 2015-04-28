@@ -37,7 +37,7 @@ function uploadUserPicture($userpic)
 		elseif(move_uploaded_file($userpic['tmp_name'], 'uploads/'.$newFileName))
 		{
 			echo '<p id="uploadStatus">Upload completed</p>';
-			create_thumb($newFileName, 32,32);
+			create_thumb($newFileName, 64,64);
 			unlink('uploads/'.$newFileName);
 			copy('uploads/thumbs/'.$newFileName, 'uploads/userpics/'.$newFileName);
 			unlink('uploads/thumbs/'.$newFileName);
