@@ -54,7 +54,7 @@
 
 ?>
 
-<form action="updateProfile.php" method="POST">
+<form action="updateProfile.php" method="POST" enctype="multipart/form-data">
 	<input type="file" name="picture"/>
 	<input type="submit" name="changePicture" value="Change Picture"/>
 </form>

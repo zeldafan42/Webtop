@@ -1,5 +1,58 @@
 <?php
 
+function uploadUserPicture($userpic)
+{
+	$allowed = array('png', 'jpg', 'gif');
+	
+	if(!is_dir("./uploads"))
+	{
+		mkdir("./uploads");
+	}
+	
+	if(!is_dir("./uploads/userpics"))
+	{
+		mkdir("./uploads/userpics");
+	}
+	
+	if(!is_dir("./uploads/thumbs"))
+	{
+		mkdir("./uploads/thumbs");
+	}
+	
+	if(isset($userpic) &&
+			!$userpic['error'] &&
+			$userpic['size']> 0 &&
+			$userpic['tmp_name'] &&
+			is_uploaded_file($userpic['tmp_name']))
+	{
+	
+		$extension = pathinfo($userpic['name'], PATHINFO_EXTENSION);
+		$newFileName = uniqid("usrimg_",TRUE).".".$extension;
+	
+		if(!in_array(strtolower($extension), $allowed) || !($userpic['type'] == "image/png" || $userpic['type'] == "image/gif" || $userpic['type'] == "image/jpeg"))
+		{
+			echo '<p id="uploadStatus">Filetype rejected</p>';
+			return false;
+		}
+		elseif(move_uploaded_file($userpic['tmp_name'], 'uploads/'.$newFileName))
+		{
+			echo '<p id="uploadStatus">Upload completed</p>';
+			create_thumb($newFileName, 32,32);
+			unlink('uploads/'.$newFileName);
+			copy('uploads/thumbs/'.$newFileName, 'uploads/userpics/'.$newFileName);
+			unlink('uploads/thumbs/'.$newFileName);
+		}
+	}
+	else
+	{
+		echo '<p id="uploadStatus">Upload failed</p>';
+		return false;
+	}
+	
+	
+	return 'uploads/userpics/'.$newFileName;
+}
+
 function show_pics()
 {
 	$fileHandle = opendir("./uploads/");
