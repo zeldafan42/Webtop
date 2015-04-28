@@ -102,6 +102,8 @@ function correctInput(&$array)
 	$array = str_replace('{', '', $array);
 	$array = str_replace('}', '', $array);
 	$array = str_replace('=', '', $array);
+	$array = str_replace('<', '', $array);
+	$array = str_replace('>', '', $array);
 	
 	return $array;
 	

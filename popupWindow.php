@@ -4,9 +4,10 @@
 	{
 		echo "<div id=\"".$appname."\" class=\"popup\" style=\"".getStyle($appname)."\";>";
 		echo	"<div class=\"popupHeader\">";
-		echo	"<h2> ".$appname."</h2>";
-		echo	"<a href=\"index.php?closePopup=".$appname."\"><img src=\"res/x_for_closing.png\" alt=\"X for closing this window\"></a>";
+		echo		"<h2> ".$appname."</h2>";
+		echo		"<a href=\"index.php?closePopup=".$appname."\"><img src=\"res/x_for_closing.png\" alt=\"X for closing this window\"></a>";
 		echo	"</div>";
+		
 		echo 	"<div id=\"popupContent\">";
 		
 		if($appname == "Foto App")
@@ -28,7 +29,7 @@
 			echo $pinfo;
 		}
 		
-		echo "</div>";
+		echo 	"</div>";
 			
 		echo "</div>";
 	}
