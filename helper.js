@@ -80,3 +80,25 @@ function cropLink(image)
 		alert("Selection too big");
 	}
 }
+
+function fetchFeed(id, index)
+{
+	$.post("rssAjax.php",
+			{fetchId: id, fetchIndex: index},
+			function(data,error)
+			{
+				$('#rssFetchResult').html(data);
+			});
+
+}
+
+function fetchFeedFile(id)
+{
+	$.post("rssAjax.php",
+			{fetchFileId: id},
+			function(data,error)
+			{
+				$('#rssFetchFileResult').html(data);
+			});
+
+}

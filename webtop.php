@@ -30,23 +30,23 @@
 	
 	if(isset($_GET['fireIcon']))
 	{
-		if(!in_array("fireApp", $apps))
+		if(!in_array("Fire App", $apps))
 		{
-			createPopupWindow("fireApp");
+			createPopupWindow("Fire App");
 		}
 	}
 	if(isset($_GET['leafIcon']))
 	{
-		if(!in_array("leafApp", $apps))
+		if(!in_array("Leaf App", $apps))
 		{
 			createPopupWindow("Leaf App");
 		}
 	}
 	if(isset($_GET['butterflyIcon']))
 	{
-		if(!in_array("butterflyApp", $apps))
+		if(!in_array("Butterfly App", $apps))
 		{
-			createPopupWindow("butterflyApp");
+			createPopupWindow("Butterfly App");
 		}
 	}
 	if(isset($_GET['openMenu']))

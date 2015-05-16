@@ -2,7 +2,7 @@
 	
 	function createPopupWindow($appname)
 	{
-		echo "<div id=\"".$appname."\" class=\"popup\" style=\"".getStyle($appname)."\";>";
+		echo "<div id=\"".$appname."\" class=\"popup\" style=\"".getStyle($appname)."\">";
 		echo	"<div class=\"popupHeader\">";
 		echo		"<h2> ".$appname."</h2>";
 		echo		"<a href=\"index.php?closePopup=".$appname."\"><img src=\"res/x_for_closing.png\" alt=\"X for closing this window\"></a>";
@@ -17,6 +17,14 @@
 		else if($appname == "Leaf App")
 		{
 			include("profileApp.php");
+		}
+		else if($appname == "Fire App")
+		{
+			include("rssCreatorApp.php");
+		}
+		else if($appname == "Butterfly App")
+		{
+			include("rssViewer.php");
 		}
 		else
 		{

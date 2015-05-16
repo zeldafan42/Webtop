@@ -54,6 +54,37 @@
 		die("Error creating table position");
 	}
 	
+	$tableCreate = "CREATE TABLE IF NOT EXISTS rssHeader
+					(
+					id INT(11) PRIMARY KEY AUTO_INCREMENT,
+					title VARCHAR(256) NOT NULL,
+					link VARCHAR(256) NOT NULL,
+					description VARCHAR(512) NOT NULL,
+					category  VARCHAR(256) NULL
+					)";
+	
+	if($conn->query($tableCreate) === FALSE)
+	{
+		die("Error creating table rssHeader");
+	}
+	
+	$tableCreate = "CREATE TABLE IF NOT EXISTS rssContent
+					(
+					id INT(11) PRIMARY KEY AUTO_INCREMENT,
+					fk_header_id INT(11),
+					title VARCHAR(256) NOT NULL,
+					link VARCHAR(256) NOT NULL,
+					description VARCHAR(512) NOT NULL,
+					author VARCHAR(64) NOT NULL,
+					timestamp TIMESTAMP NOT NULL,
+					FOREIGN KEY(fk_header_id) REFERENCES rssHeader(id) ON DELETE CASCADE
+					)";
+	
+	if($conn->query($tableCreate) === FALSE)
+	{
+		die("Error creating table rssContent");
+	}
+	
 	$conn->close();
 	
 	echo "Init successful";
