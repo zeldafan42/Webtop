@@ -26,6 +26,10 @@
 		{
 			include("rssViewer.php");
 		}
+		else if($appname == "Lightning App")
+		{
+			include("weatherApp.php");
+		}
 		else
 		{
 			ob_start();

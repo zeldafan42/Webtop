@@ -49,6 +49,13 @@
 			createPopupWindow("Butterfly App");
 		}
 	}
+	if(isset($_GET['lightningIcon']))
+	{
+		if(!in_array("Lightning App", $apps))
+		{
+			createPopupWindow("Lightning App");
+		}
+	}
 	if(isset($_GET['openMenu']))
 	{
 		$_SESSION['startMenu'] = $_GET['openMenu'];
@@ -71,6 +78,10 @@
 	
 	echo "<div id=\"butterflyIcon\" class=\"webtopIcon\" style=\"".getStyle("butterflyIcon")."\">";
 	echo "<a href=\"index.php?butterflyIcon=true\"> <img src=\"res/butterfly-icon.png\" alt=\"Schmetterling-Icon\" > </a>";
+	echo "</div>";
+	
+	echo "<div id=\"lightningIcon\" class=\"webtopIcon\" style=\"".getStyle("lightningIcon")."\">";
+	echo "<a href=\"index.php?lightningIcon=true\"> <img src=\"res/lightning-icon.png\" alt=\"Blitz-Icon\" > </a>";
 	echo "</div>";
 		
 ?>

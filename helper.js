@@ -102,3 +102,31 @@ function fetchFeedFile(id)
 			});
 
 }
+
+function fetchCities(country)
+{
+	$('#weatherCities').html("Waiting for response...");
+	$('#weatherResult').html("");
+	$.post("weatherAjax.php",
+			{country: country},
+			function(data,error)
+			{
+				$('#weatherCities').html(data);
+			});
+}
+
+function fetchWeather(cityCountry)
+{
+	var split = cityCountry.split(",");
+	var city = split[0];
+	var wCountry = split[1];
+	
+	$('#weatherResult').html("Waiting for response...");
+	
+	$.post("weatherAjax.php",
+			{city: city, wCountry: wCountry},
+			function(data,error)
+			{
+				$('#weatherResult').html(data);
+			});
+}
