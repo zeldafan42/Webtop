@@ -103,9 +103,20 @@ function fetchFeedFile(id)
 
 }
 
+function fetchCountries()
+{
+	$('#weatherCountries').html("Fetching available countries...");
+	$.post("weatherAjax.php",
+			{getCountries: ""},
+			function(data,error)
+			{
+				$('#weatherCountries').html(data);
+			});
+}
+
 function fetchCities(country)
 {
-	$('#weatherCities').html("Waiting for response...");
+	$('#weatherCities').html("Fetching available cities...");
 	$('#weatherResult').html("");
 	$.post("weatherAjax.php",
 			{country: country},
@@ -121,7 +132,7 @@ function fetchWeather(cityCountry)
 	var city = split[0];
 	var wCountry = split[1];
 	
-	$('#weatherResult').html("Waiting for response...");
+	$('#weatherResult').html("Fetching weather data...");
 	
 	$.post("weatherAjax.php",
 			{city: city, wCountry: wCountry},
