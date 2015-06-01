@@ -23,8 +23,11 @@ class RssDatabase
 		$stmt = $this->connection->prepare("INSERT INTO rssHeader (title,link,description,category) VALUES (?,?,?,?)");
 		$stmt->bind_param("ssss", $title,$link,$description,$category);
 		$stmt->execute();
+		$id = $stmt->insert_id;
 		$stmt->free_result();
 		$stmt->close();
+		
+		return $id;
 	}
 	
 	function addRssContent($headid,$title,$link,$description,$author)
@@ -215,7 +218,14 @@ class RssDatabase
 		
 		$stmt->free_result();
 		$stmt->close();
-		return $response;
+		if(!empty($response))
+		{
+			return $response;
+		}
+		else 
+		{
+			return false;
+		}
 	}
 	
 	

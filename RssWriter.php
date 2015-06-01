@@ -19,14 +19,18 @@ class RssWriter
 		$rssObject->channel->addChild("link",$feed['link']);
 		$rssObject->channel->addChild("category",$feed['category']);
 		$i = 0;
-		foreach ($data as $item)
+		
+		if($data)
 		{
-			$rssObject->channel->addChild("item");
-			$rssObject->channel->item[$i]->addChild("title",$item['title']);
-			$rssObject->channel->item[$i]->addChild("description",$item['description']);
-			$rssObject->channel->item[$i]->addChild("link",$item['link']);
-			$rssObject->channel->item[$i]->addChild("author",$item['author']);
-			$i++;
+			foreach ($data as $item)
+			{
+				$rssObject->channel->addChild("item");
+				$rssObject->channel->item[$i]->addChild("title",$item['title']);
+				$rssObject->channel->item[$i]->addChild("description",$item['description']);
+				$rssObject->channel->item[$i]->addChild("link",$item['link']);
+				$rssObject->channel->item[$i]->addChild("author",$item['author']);
+				$i++;
+			}
 		}
 		$rssObject->asXML($feed['title'].".rss");
 		

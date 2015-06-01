@@ -9,7 +9,8 @@ if(isset($_POST['rssHeaderAdd']))
 {
 	if(isset($_POST['rssHeaderTitle'],$_POST['rssHeaderLink'], $_POST['rssHeaderDescription'], $_POST['rssHeaderCategory']))
 	{
-		$rssHandler->addRssHeader($_POST['rssHeaderTitle'], $_POST['rssHeaderLink'], $_POST['rssHeaderDescription'], $_POST['rssHeaderCategory']);
+		$headid = $rssHandler->addRssHeader($_POST['rssHeaderTitle'], $_POST['rssHeaderLink'], $_POST['rssHeaderDescription'], $_POST['rssHeaderCategory']);
+		$rssWriter->writeToRss($headid);
 	}
 }
 
